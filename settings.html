@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | CodeGuard AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="brand">
+        <div class="brand-icon">✦</div>
+
+        <div>
+            <h2>CODEGUARD</h2>
+            <p>AI RELEASE INTELLIGENCE</p>
+        </div>
+    </div>
+
+    <div class="system-status">
+        <span class="status-dot"></span>
+        System Operational
+    </div>
+
+</header>
+
+
+<div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-section">
+
+            <p class="section-title">WORKSPACE</p>
+
+            <a href="index.html">
+                ◇ &nbsp; Dashboard
+            </a>
+
+            <a href="review.html">
+                ⌁ &nbsp; New Review
+            </a>
+
+            <a href="github-pr.html">
+                ◈ &nbsp; GitHub PR
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <p class="section-title">ANALYTICS</p>
+
+            <a href="history.html">
+                ◷ &nbsp; Review History
+            </a>
+
+            <a href="reports.html">
+                ▥ &nbsp; Reports
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <p class="section-title">SYSTEM</p>
+
+            <a href="settings.html" class="active">
+                ⚙ &nbsp; Settings
+            </a>
+
+        </div>
+
+
+        <div class="ai-status">
+
+            <span class="status-dot"></span>
+
+            <div>
+                <strong>AI ENGINE ONLINE</strong>
+                <small>Ready for analysis</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <div class="breadcrumb">
+            System &nbsp; / &nbsp; Settings
+        </div>
+
+
+        <!-- HEADER -->
+        <section class="page-header">
+
+            <div>
+
+                <div class="ai-label">
+                    ● SYSTEM CONFIGURATION
+                </div>
+
+                <h1>Settings</h1>
+
+                <p>
+                    Configure CodeGuard AI analysis preferences,
+                    review behavior and application settings.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- SETTINGS GRID -->
+        <section class="settings-layout">
+
+
+            <!-- ANALYSIS SETTINGS -->
+            <div class="review-card settings-card">
+
+                <div class="settings-title">
+
+                    <div class="settings-icon">
+                        ✦
+                    </div>
+
+                    <div>
+                        <h2>AI Analysis</h2>
+                        <p>
+                            Configure how CodeGuard analyzes code.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="setting-item">
+
+                    <div>
+                        <strong>Security Analysis</strong>
+
+                        <small>
+                            Detect common security vulnerabilities.
+                        </small>
+                    </div>
+
+                    <label class="toggle">
+                        <input
+                            type="checkbox"
+                            id="securityToggle"
+                            checked
+                        >
+
+                        <span></span>
+                    </label>
+
+                </div>
+
+
+                <div class="setting-item">
+
+                    <div>
+                        <strong>Performance Analysis</strong>
+
+                        <small>
+                            Identify inefficient code patterns.
+                        </small>
+                    </div>
+
+                    <label class="toggle">
+                        <input
+                            type="checkbox"
+                            id="performanceToggle"
+                            checked
+                        >
+
+                        <span></span>
+                    </label>
+
+                </div>
+
+
+                <div class="setting-item">
+
+                    <div>
+                        <strong>Code Smell Detection</strong>
+
+                        <small>
+                            Detect maintainability problems.
+                        </small>
+                    </div>
+
+                    <label class="toggle">
+                        <input
+                            type="checkbox"
+                            id="smellToggle"
+                            checked
+                        >
+
+                        <span></span>
+                    </label>
+
+                </div>
+
+
+                <div class="setting-item">
+
+                    <div>
+                        <strong>AI Suggestions</strong>
+
+                        <small>
+                            Generate improvement recommendations.
+                        </small>
+                    </div>
+
+                    <label class="toggle">
+                        <input
+                            type="checkbox"
+                            id="suggestionToggle"
+                            checked
+                        >
+
+                        <span></span>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- REVIEW SETTINGS -->
+            <div class="review-card settings-card">
+
+                <div class="settings-title">
+
+                    <div class="settings-icon purple">
+                        ◈
+                    </div>
+
+                    <div>
+                        <h2>Review Preferences</h2>
+
+                        <p>
+                            Customize your code review workflow.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="setting-field">
+
+                    <label>
+                        DEFAULT LANGUAGE
+                    </label>
+
+                    <select id="defaultLanguage">
+
+                        <option>JavaScript</option>
+                        <option>Python</option>
+                        <option>Java</option>
+                        <option>C++</option>
+                        <option>TypeScript</option>
+                        <option>HTML</option>
+                        <option>CSS</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="setting-field">
+
+                    <label>
+                        RISK THRESHOLD
+                    </label>
+
+                    <select id="riskThreshold">
+
+                        <option>Low</option>
+                        <option selected>Medium</option>
+                        <option>High</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="setting-field">
+
+                    <label>
+                        REVIEW MODE
+                    </label>
+
+                    <select id="reviewMode">
+
+                        <option selected>Standard</option>
+                        <option>Strict</option>
+                        <option>Fast</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- GITHUB -->
+            <div class="review-card settings-card">
+
+                <div class="settings-title">
+
+                    <div class="settings-icon">
+                        ◈
+                    </div>
+
+                    <div>
+                        <h2>GitHub Integration</h2>
+
+                        <p>
+                            Configure repository integration.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="github-status">
+
+                    <span class="status-dot"></span>
+
+                    <div>
+                        <strong>GitHub Integration</strong>
+
+                        <small>
+                            Ready to connect
+                        </small>
+                    </div>
+
+                    <button
+                        class="secondary-btn"
+                        onclick="window.location.href='github-pr.html'">
+
+                        Configure
+
+                    </button>
+
+                </div>
+
+
+                <div class="setting-item">
+
+                    <div>
+                        <strong>Automatic PR Analysis</strong>
+
+                        <small>
+                            Analyze pull requests when submitted.
+                        </small>
+                    </div>
+
+                    <label class="toggle">
+                        <input
+                            type="checkbox"
+                            id="autoPR"
+                        >
+
+                        <span></span>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- NOTIFICATIONS -->
+            <div class="review-card settings-card">
+
+                <div class="settings-title">
+
+                    <div class="settings-icon cyan">
+                        ◉
+                    </div>
+
+                    <div>
+                        <h2>Notifications</h2>
+
+                        <p>
+                            Control application notifications.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="setting-item">
+
+                    <div>
+                        <strong>Risk Alerts</strong>
+
+                        <small>
+                            Notify when critical risks are detected.
+                        </small>
+                    </div>
+
+                    <label class="toggle">
+                        <input
+                            type="checkbox"
+                            id="riskAlerts"
+                            checked
+                        >
+
+                        <span></span>
+                    </label>
+
+                </div>
+
+
+                <div class="setting-item">
+
+                    <div>
+                        <strong>Review Completion</strong>
+
+                        <small>
+                            Show notification when analysis finishes.
+                        </small>
+                    </div>
+
+                    <label class="toggle">
+                        <input
+                            type="checkbox"
+                            id="completionAlerts"
+                            checked
+                        >
+
+                        <span></span>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- SAVE AREA -->
+        <section class="settings-save">
+
+            <div>
+
+                <strong>Configuration</strong>
+
+                <p>
+                    Changes are stored locally in this browser.
+                </p>
+
+            </div>
+
+            <div class="review-actions">
+
+                <button
+                    class="secondary-btn"
+                    onclick="resetSettings()">
+
+                    Reset
+
+                </button>
+
+                <button
+                    class="primary-btn"
+                    onclick="saveSettings()">
+
+                    ✓ Save Changes
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- SYSTEM INFO -->
+        <section class="system-info">
+
+            <div>
+                <span class="ai-label">SYSTEM STATUS</span>
+
+                <h3>CodeGuard AI Engine</h3>
+
+                <p>
+                    Frontend analysis engine ready for code review.
+                </p>
+            </div>
+
+            <div class="system-version">
+                <span>VERSION</span>
+                <strong>1.0.0</strong>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+<style>
+    /* =====================================================
+   SETTINGS PAGE
+   ===================================================== */
+
+.settings-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.settings-card {
+    padding: 24px;
+}
+
+.settings-title {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 22px;
+}
+
+.settings-title h2 {
+    font-size: 16px;
+}
+
+.settings-title p {
+    margin-top: 5px;
+    color: #69768d;
+    font-size: 10px;
+}
+
+.settings-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    color: var(--blue);
+
+    background: rgba(79,140,255,0.09);
+
+    border: 1px solid rgba(79,140,255,0.18);
+}
+
+.settings-icon.purple {
+    color: var(--purple);
+    background: rgba(118,87,255,0.09);
+    border-color: rgba(118,87,255,0.18);
+}
+
+.settings-icon.cyan {
+    color: var(--cyan);
+    background: rgba(39,215,255,0.08);
+    border-color: rgba(39,215,255,0.15);
+}
+
+
+/* SETTING ROW */
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 16px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,0.055);
+}
+
+.setting-item:last-child {
+    border-bottom: none;
+}
+
+.setting-item strong {
+    display: block;
+    font-size: 11px;
+}
+
+.setting-item small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #66738a;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+}
+
+
+/* TOGGLE */
+
+.toggle {
+    position: relative;
+
+    width: 42px;
+    height: 22px;
+
+    flex-shrink: 0;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle span {
+    position: absolute;
+
+    inset: 0;
+
+    cursor: pointer;
+
+    background: #202c40;
+
+    border-radius: 20px;
+
+    transition: 0.25s;
+}
+
+.toggle span::before {
+    content: "";
+
+    position: absolute;
+
+    width: 16px;
+    height: 16px;
+
+    left: 3px;
+    top: 3px;
+
+    border-radius: 50%;
+
+    background: #7b879b;
+
+    transition: 0.25s;
+}
+
+.toggle input:checked + span {
+    background: rgba(79,140,255,0.35);
+}
+
+.toggle input:checked + span::before {
+    transform: translateX(20px);
+
+    background: var(--blue);
+
+    box-shadow: 0 0 10px rgba(79,140,255,0.5);
+}
+
+
+/* SELECT FIELDS */
+
+.setting-field {
+    margin-bottom: 18px;
+}
+
+.setting-field:last-child {
+    margin-bottom: 0;
+}
+
+.setting-field label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #59677e;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+}
+
+.setting-field select {
+    width: 100%;
+
+    padding: 12px 13px;
+
+    border-radius: 8px;
+
+    border: 1px solid var(--border);
+
+    background: #0a111e;
+
+    color: #dbe4f3;
+
+    outline: none;
+
+    font-size: 11px;
+}
+
+.setting-field select:focus {
+    border-color: var(--blue);
+}
+
+
+/* GITHUB STATUS */
+
+.github-status {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    padding: 14px;
+
+    margin-bottom: 15px;
+
+    border-radius: 9px;
+
+    background: rgba(40,230,155,0.04);
+
+    border: 1px solid rgba(40,230,155,0.12);
+}
+
+.github-status > div {
+    flex: 1;
+}
+
+.github-status strong {
+    display: block;
+
+    font-size: 10px;
+}
+
+.github-status small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #65738a;
+
+    font-size: 8px;
+}
+
+.github-status .secondary-btn {
+    padding: 8px 11px;
+
+    font-size: 9px;
+}
+
+
+/* SAVE AREA */
+
+.settings-save {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 22px;
+
+    padding: 20px 22px;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(79,140,255,0.07),
+        rgba(118,87,255,0.04)
+    );
+
+    border: 1px solid rgba(79,140,255,0.14);
+}
+
+.settings-save strong {
+    font-size: 12px;
+}
+
+.settings-save p {
+    margin-top: 5px;
+
+    color: #64728a;
+
+    font-size: 9px;
+}
+
+
+/* SYSTEM INFO */
+
+.system-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 18px;
+
+    padding: 20px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: #0d1523;
+}
+
+.system-info h3 {
+    margin-top: 5px;
+
+    font-size: 13px;
+}
+
+.system-info p {
+    margin-top: 5px;
+
+    color: #65738a;
+
+    font-size: 9px;
+}
+
+.system-version {
+    text-align: right;
+}
+
+.system-version span {
+    display: block;
+
+    color: #526078;
+
+    font-size: 7px;
+
+    letter-spacing: 1.5px;
+}
+
+.system-version strong {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--blue);
+
+    font-size: 12px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+
+    .settings-layout {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .settings-save {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .system-info {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .system-version {
+        text-align: left;
+    }
+
+}
+</style>
+
+<script src="script.js"></script>
+
+</body>
+</html>

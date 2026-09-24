@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports | CodeGuard AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="brand">
+        <div class="brand-icon">✦</div>
+
+        <div>
+            <h2>CODEGUARD</h2>
+            <p>AI RELEASE INTELLIGENCE</p>
+        </div>
+    </div>
+
+    <div class="system-status">
+        <span class="status-dot"></span>
+        System Operational
+    </div>
+
+</header>
+
+
+<div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-section">
+
+            <p class="section-title">WORKSPACE</p>
+
+            <a href="index.html">
+                ◇ &nbsp; Dashboard
+            </a>
+
+            <a href="review.html">
+                ⌁ &nbsp; New Review
+            </a>
+
+            <a href="github-pr.html">
+                ◈ &nbsp; GitHub PR
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <p class="section-title">ANALYTICS</p>
+
+            <a href="history.html">
+                ◷ &nbsp; Review History
+            </a>
+
+            <a href="reports.html" class="active">
+                ▥ &nbsp; Reports
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <p class="section-title">SYSTEM</p>
+
+            <a href="settings.html">
+                ⚙ &nbsp; Settings
+            </a>
+
+        </div>
+
+
+        <div class="ai-status">
+
+            <span class="status-dot"></span>
+
+            <div>
+                <strong>AI ENGINE ONLINE</strong>
+                <small>Ready for analysis</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <div class="breadcrumb">
+            Analytics &nbsp; / &nbsp; Reports
+        </div>
+
+
+        <!-- HEADER -->
+        <section class="page-header">
+
+            <div>
+
+                <div class="ai-label">
+                    ● CODE QUALITY INTELLIGENCE
+                </div>
+
+                <h1>Reports</h1>
+
+                <p>
+                    Understand code quality, security exposure and
+                    development trends across your reviews.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- REPORT OVERVIEW -->
+        <section class="report-overview">
+
+            <div class="report-score-card">
+
+                <div class="report-card-top">
+
+                    <div>
+                        <span class="ai-label">
+                            OVERALL CODE HEALTH
+                        </span>
+
+                        <h2>94<span>/100</span></h2>
+                    </div>
+
+                    <div class="health-ring">
+                        <div>
+                            94%
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="health-bar">
+                    <div class="health-progress"></div>
+                </div>
+
+                <p>
+                    Code quality is currently within the
+                    recommended release range.
+                </p>
+
+            </div>
+
+
+            <div class="report-mini-grid">
+
+                <div class="report-mini-card">
+                    <span class="report-mini-icon">🐛</span>
+                    <strong>12</strong>
+                    <small>Bug Findings</small>
+                    <em>↓ 18% this month</em>
+                </div>
+
+
+                <div class="report-mini-card">
+                    <span class="report-mini-icon">🔐</span>
+                    <strong>5</strong>
+                    <small>Security Risks</small>
+                    <em>↓ 25% this month</em>
+                </div>
+
+
+                <div class="report-mini-card">
+                    <span class="report-mini-icon">⚡</span>
+                    <strong>8</strong>
+                    <small>Performance Issues</small>
+                    <em>↓ 12% this month</em>
+                </div>
+
+
+                <div class="report-mini-card">
+                    <span class="report-mini-icon">◎</span>
+                    <strong>31</strong>
+                    <small>Code Smells</small>
+                    <em>↓ 9% this month</em>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TREND -->
+        <section class="review-card report-chart-card">
+
+            <div class="report-heading">
+
+                <div>
+                    <span class="ai-label">
+                        QUALITY TREND
+                    </span>
+
+                    <h2>Code Health Over Time</h2>
+
+                    <p>
+                        Average quality score from recent reviews.
+                    </p>
+                </div>
+
+                <select class="report-select">
+                    <option>Last 30 Days</option>
+                    <option>Last 90 Days</option>
+                    <option>This Year</option>
+                </select>
+
+            </div>
+
+
+            <div class="fake-chart">
+
+                <div class="chart-labels">
+                    <span>100</span>
+                    <span>80</span>
+                    <span>60</span>
+                    <span>40</span>
+                    <span>20</span>
+                </div>
+
+                <div class="chart-area">
+
+                    <div class="chart-grid-line line-1"></div>
+                    <div class="chart-grid-line line-2"></div>
+                    <div class="chart-grid-line line-3"></div>
+                    <div class="chart-grid-line line-4"></div>
+                    <div class="chart-grid-line line-5"></div>
+
+                    <div class="chart-line">
+                        <span style="left: 5%; bottom: 45%;"></span>
+                        <span style="left: 18%; bottom: 50%;"></span>
+                        <span style="left: 31%; bottom: 57%;"></span>
+                        <span style="left: 44%; bottom: 54%;"></span>
+                        <span style="left: 57%; bottom: 68%;"></span>
+                        <span style="left: 70%; bottom: 74%;"></span>
+                        <span style="left: 83%; bottom: 82%;"></span>
+                        <span style="left: 95%; bottom: 90%;"></span>
+                    </div>
+
+                    <div class="chart-fill"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-dates">
+                <span>Sep 01</span>
+                <span>Sep 05</span>
+                <span>Sep 10</span>
+                <span>Sep 15</span>
+                <span>Sep 20</span>
+                <span>Sep 24</span>
+            </div>
+
+        </section>
+
+
+        <!-- FINDINGS -->
+        <section class="report-columns">
+
+            <div class="review-card">
+
+                <div class="report-heading">
+                    <div>
+                        <span class="ai-label">
+                            FINDINGS
+                        </span>
+
+                        <h2>Issue Distribution</h2>
+                    </div>
+                </div>
+
+
+                <div class="issue-distribution">
+
+                    <div class="issue-row">
+
+                        <div>
+                            <span>🐛</span>
+                            Bugs
+                        </div>
+
+                        <strong>12</strong>
+
+                        <div class="issue-bar">
+                            <div style="width: 72%;"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="issue-row">
+
+                        <div>
+                            <span>🔐</span>
+                            Security
+                        </div>
+
+                        <strong>5</strong>
+
+                        <div class="issue-bar">
+                            <div style="width: 38%;"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="issue-row">
+
+                        <div>
+                            <span>⚡</span>
+                            Performance
+                        </div>
+
+                        <strong>8</strong>
+
+                        <div class="issue-bar">
+                            <div style="width: 55%;"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="issue-row">
+
+                        <div>
+                            <span>◎</span>
+                            Code Smells
+                        </div>
+
+                        <strong>31</strong>
+
+                        <div class="issue-bar">
+                            <div style="width: 92%;"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RELEASE READINESS -->
+            <div class="review-card release-card">
+
+                <div class="report-heading">
+
+                    <div>
+                        <span class="ai-label">
+                            RELEASE INTELLIGENCE
+                        </span>
+
+                        <h2>Release Readiness</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="release-status">
+
+                    <div class="release-icon">
+                        ✓
+                    </div>
+
+                    <div>
+                        <strong>READY FOR REVIEW</strong>
+
+                        <p>
+                            No critical security blockers detected
+                            in recent analysis.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="release-check">
+
+                    <span>✓</span>
+                    <div>
+                        <strong>Security</strong>
+                        <small>No critical findings</small>
+                    </div>
+
+                </div>
+
+
+                <div class="release-check">
+
+                    <span>✓</span>
+                    <div>
+                        <strong>Performance</strong>
+                        <small>Within acceptable range</small>
+                    </div>
+
+                </div>
+
+
+                <div class="release-check">
+
+                    <span>!</span>
+                    <div>
+                        <strong>Code Quality</strong>
+                        <small>Some improvements suggested</small>
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="primary-btn report-button"
+                    onclick="window.location.href='review.html'">
+
+                    ✦ Run New Analysis
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- AI INSIGHT -->
+        <section class="history-insight">
+
+            <div class="insight-icon">
+                ✦
+            </div>
+
+            <div>
+
+                <span class="ai-label">
+                    AI RELEASE INSIGHT
+                </span>
+
+                <h3>
+                    Security risk has decreased across recent reviews.
+                </h3>
+
+                <p>
+                    CodeGuard detected fewer high-impact security
+                    findings compared with earlier reviews. Continue
+                    monitoring authentication, input validation and
+                    dependency-related risks.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<style>
+    /* =====================================================
+   REPORTS PAGE
+   ===================================================== */
+
+.report-overview {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.report-score-card {
+    padding: 25px;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #111a2b, #0d1422);
+    border: 1px solid var(--border);
+}
+
+.report-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.report-score-card h2 {
+    margin-top: 8px;
+    font-size: 48px;
+    letter-spacing: -2px;
+}
+
+.report-score-card h2 span {
+    color: #59667c;
+    font-size: 17px;
+    letter-spacing: 0;
+}
+
+.health-ring {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: conic-gradient(
+        var(--green) 0deg 338deg,
+        #1a2638 338deg 360deg
+    );
+    position: relative;
+}
+
+.health-ring::before {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #101827;
+}
+
+.health-ring div {
+    position: relative;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.health-bar {
+    height: 6px;
+    margin-top: 22px;
+    background: #1a2537;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.health-progress {
+    width: 94%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        var(--blue),
+        var(--green)
+    );
+}
+
+.report-score-card > p {
+    margin-top: 13px;
+    color: #68758c;
+    font-size: 10px;
+}
+
+
+.report-mini-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.report-mini-card {
+    padding: 18px;
+    border-radius: 12px;
+    background: #0e1726;
+    border: 1px solid var(--border);
+}
+
+.report-mini-icon {
+    display: block;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.report-mini-card strong {
+    display: block;
+    font-size: 24px;
+}
+
+.report-mini-card small {
+    display: block;
+    margin-top: 4px;
+    color: #6c788e;
+    font-size: 9px;
+}
+
+.report-mini-card em {
+    display: block;
+    margin-top: 8px;
+    color: var(--green);
+    font-size: 8px;
+    font-style: normal;
+}
+
+
+.report-chart-card {
+    margin-bottom: 22px;
+}
+
+.report-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.report-heading h2 {
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+.report-heading p {
+    margin-top: 5px;
+    color: #65738a;
+    font-size: 10px;
+}
+
+.report-select {
+    background: #111a2a;
+    color: #aeb8c9;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 9px 12px;
+    outline: none;
+    font-size: 10px;
+}
+
+
+.fake-chart {
+    height: 260px;
+    display: flex;
+    gap: 15px;
+}
+
+.chart-labels {
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    color: #4d5a70;
+    font-size: 8px;
+}
+
+.chart-area {
+    flex: 1;
+    position: relative;
+    border-left: 1px solid #202d43;
+    border-bottom: 1px solid #202d43;
+    overflow: hidden;
+}
+
+.chart-grid-line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.045);
+}
+
+.line-1 {
+    top: 0;
+}
+
+.line-2 {
+    top: 25%;
+}
+
+.line-3 {
+    top: 50%;
+}
+
+.line-4 {
+    top: 75%;
+}
+
+.line-5 {
+    bottom: 0;
+}
+
+
+.chart-line {
+    position: absolute;
+    inset: 0;
+}
+
+.chart-line span {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--blue);
+    box-shadow: 0 0 12px rgba(79,140,255,0.8);
+    z-index: 3;
+}
+
+.chart-fill {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 55%;
+    background: linear-gradient(
+        180deg,
+        rgba(79,140,255,0.13),
+        rgba(79,140,255,0)
+    );
+    clip-path: polygon(
+        0 80%,
+        18% 70%,
+        31% 58%,
+        44% 63%,
+        57% 40%,
+        70% 31%,
+        83% 18%,
+        95% 5%,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+}
+
+.chart-dates {
+    margin-left: 45px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    color: #4f5c72;
+    font-size: 8px;
+}
+
+
+.report-columns {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 18px;
+}
+
+
+.issue-distribution {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.issue-row {
+    display: grid;
+    grid-template-columns: 1fr 35px 2fr;
+    align-items: center;
+    gap: 12px;
+    font-size: 10px;
+    color: #a0aabd;
+}
+
+.issue-row > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.issue-row > div:first-child span {
+    font-size: 15px;
+}
+
+.issue-row strong {
+    text-align: right;
+    color: #e4eaf5;
+}
+
+.issue-bar {
+    height: 5px;
+    background: #1a2537;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.issue-bar div {
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        var(--blue),
+        var(--purple)
+    );
+    border-radius: 10px;
+}
+
+
+.release-status {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 15px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    background: rgba(40,230,155,0.05);
+    border: 1px solid rgba(40,230,155,0.13);
+}
+
+.release-icon {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(40,230,155,0.1);
+    color: var(--green);
+    font-weight: bold;
+}
+
+.release-status strong {
+    display: block;
+    font-size: 10px;
+    color: var(--green);
+}
+
+.release-status p {
+    margin-top: 5px;
+    color: #68768c;
+    font-size: 9px;
+}
+
+
+.release-check {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.release-check > span {
+    color: var(--green);
+    font-weight: bold;
+}
+
+.release-check:last-of-type > span {
+    color: #ffc44d;
+}
+
+.release-check strong {
+    display: block;
+    font-size: 10px;
+}
+
+.release-check small {
+    display: block;
+    margin-top: 3px;
+    color: #65738a;
+    font-size: 8px;
+}
+
+.report-button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+@media (max-width: 950px) {
+
+    .report-overview,
+    .report-columns {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .report-mini-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .report-heading {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+}
+</style>
+<script src="script.js"></script>
+
+</body>
+</html>
