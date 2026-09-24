@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Code Review & Release Risk Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header class="header">
+
+        <div class="logo">
+            <span class="logo-icon">AI</span>
+
+            <div>
+                <h1>CodeGuard AI</h1>
+                <p>Code Review & Release Risk Assistant</p>
+            </div>
+        </div>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            System Ready
+        </div>
+
+    </header>
+
+
+    <!-- Main -->
+
+    <main class="container">
+
+        <!-- Introduction -->
+
+        <section class="hero">
+
+            <h2>AI-Powered Code Review</h2>
+
+            <p>
+                Analyze your code for bugs, security vulnerabilities,
+                performance risks and code smells before release.
+            </p>
+
+        </section>
+
+
+        <!-- Code Input -->
+
+        <section class="review-section">
+
+            <div class="section-header">
+
+                <div>
+                    <h3>Code Analysis</h3>
+                    <p>Paste your code below to analyze it.</p>
+                </div>
+
+                <select id="language">
+
+                    <option value="javascript">
+                        JavaScript
+                    </option>
+
+                    <option value="python">
+                        Python
+                    </option>
+
+                    <option value="java">
+                        Java
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <textarea
+                id="codeInput"
+                placeholder="// Paste your code here..."
+            ></textarea>
+
+
+            <div class="actions">
+
+                <button id="sampleButton" class="secondary-button">
+                    Load Sample
+                </button>
+
+                <button id="clearButton" class="secondary-button">
+                    Clear
+                </button>
+
+                <button id="analyzeButton" class="primary-button">
+                    Analyze Code
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Results -->
+
+        <section id="results" class="results hidden">
+
+            <!-- Risk Card -->
+
+            <div class="risk-card">
+
+                <div>
+
+                    <p class="label">
+                        RELEASE RISK
+                    </p>
+
+                    <h2 id="riskScore">
+                        0
+                    </h2>
+
+                    <p id="riskLevel">
+                        SAFE
+                    </p>
+
+                </div>
+
+                <div class="risk-circle">
+                    <span id="riskPercent">
+                        0%
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- Statistics -->
+
+            <div class="statistics">
+
+                <div class="stat-card">
+                    <span>🐛</span>
+                    <h3 id="bugCount">0</h3>
+                    <p>Bugs</p>
+                </div>
+
+                <div class="stat-card">
+                    <span>🔐</span>
+                    <h3 id="securityCount">0</h3>
+                    <p>Security</p>
+                </div>
+
+                <div class="stat-card">
+                    <span>⚡</span>
+                    <h3 id="performanceCount">0</h3>
+                    <p>Performance</p>
+                </div>
+
+                <div class="stat-card">
+                    <span>🧹</span>
+                    <h3 id="smellCount">0</h3>
+                    <p>Code Smells</p>
+                </div>
+
+            </div>
+
+
+            <!-- Top Issues -->
+
+            <div class="issues-section">
+
+                <div class="section-header">
+
+                    <div>
+                        <h3>Top Must-Fix Issues</h3>
+
+                        <p>
+                            Issues that should be reviewed before release.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div id="issuesContainer">
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            CodeGuard AI • AI Code Review & Release-Risk Assistant
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #172033;
+}
+
+
+/* HEADER */
+
+.header {
+    background: #111827;
+    color: white;
+
+    padding: 18px 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+
+    background: #2563eb;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+}
+
+
+.logo h1 {
+    font-size: 20px;
+}
+
+
+.logo p {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-top: 3px;
+}
+
+
+.status {
+    font-size: 13px;
+    color: #d1d5db;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+
+    background: #22c55e;
+
+    border-radius: 50%;
+}
+
+
+/* MAIN */
+
+.container {
+    width: 86%;
+    max-width: 1200px;
+
+    margin: 40px auto;
+}
+
+
+/* HERO */
+
+.hero {
+    margin-bottom: 30px;
+}
+
+
+.hero h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+
+.hero p {
+    color: #64748b;
+    max-width: 650px;
+    line-height: 1.6;
+}
+
+
+/* REVIEW SECTION */
+
+.review-section,
+.issues-section {
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+
+    margin-bottom: 25px;
+}
+
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+
+.section-header h3 {
+    font-size: 20px;
+}
+
+
+.section-header p {
+    color: #64748b;
+
+    font-size: 14px;
+
+    margin-top: 5px;
+}
+
+
+select {
+    padding: 10px 14px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    background: white;
+}
+
+
+/* CODE INPUT */
+
+textarea {
+    width: 100%;
+
+    height: 300px;
+
+    resize: vertical;
+
+    background: #111827;
+
+    color: #e5e7eb;
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+    font-family: Consolas, monospace;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    outline: none;
+}
+
+
+textarea:focus {
+    box-shadow: 0 0 0 2px #2563eb;
+}
+
+
+/* BUTTONS */
+
+.actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+
+button {
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 11px 18px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+
+.primary-button {
+    background: #2563eb;
+
+    color: white;
+}
+
+
+.primary-button:hover {
+    background: #1d4ed8;
+}
+
+
+.secondary-button {
+    background: #e5e7eb;
+
+    color: #374151;
+}
+
+
+.secondary-button:hover {
+    background: #d1d5db;
+}
+
+
+/* RESULTS */
+
+.hidden {
+    display: none;
+}
+
+
+/* RISK CARD */
+
+.risk-card {
+    background: #111827;
+
+    color: white;
+
+    border-radius: 14px;
+
+    padding: 30px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+
+.label {
+    font-size: 12px;
+
+    color: #9ca3af;
+
+    letter-spacing: 1px;
+}
+
+
+.risk-card h2 {
+    font-size: 55px;
+
+    margin: 5px 0;
+}
+
+
+#riskLevel {
+    font-weight: bold;
+}
+
+
+.risk-circle {
+    width: 110px;
+    height: 110px;
+
+    border-radius: 50%;
+
+    border: 8px solid #2563eb;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.risk-circle span {
+    font-size: 20px;
+
+    font-weight: bold;
+}
+
+
+/* STATISTICS */
+
+.statistics {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+
+.stat-card {
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+
+.stat-card span {
+    font-size: 22px;
+}
+
+
+.stat-card h3 {
+    font-size: 28px;
+
+    margin-top: 10px;
+}
+
+
+.stat-card p {
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* ISSUE */
+
+.issue {
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    padding: 18px;
+
+    margin-top: 12px;
+}
+
+
+.issue-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 8px;
+}
+
+
+.issue-title {
+    font-weight: bold;
+}
+
+
+.badge {
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    font-size: 11px;
+
+    font-weight: bold;
+}
+
+
+.critical {
+    background: #fee2e2;
+
+    color: #b91c1c;
+}
+
+
+.high {
+    background: #ffedd5;
+
+    color: #c2410c;
+}
+
+
+.medium {
+    background: #fef3c7;
+
+    color: #92400e;
+}
+
+
+.low {
+    background: #dcfce7;
+
+    color: #166534;
+}
+
+
+.issue p {
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+.issue-suggestion {
+    margin-top: 10px;
+
+    background: #f8fafc;
+
+    padding: 10px;
+
+    border-radius: 6px;
+}
+
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+
+    padding: 30px;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .header {
+        padding: 15px 5%;
+    }
+
+    .status {
+        display: none;
+    }
+
+    .container {
+        width: 92%;
+    }
+
+    .statistics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+
+    .actions {
+        flex-wrap: wrap;
+    }
+
+}
+</style>
+<script>
+    const codeInput = document.getElementById("codeInput");
+
+const analyzeButton =
+    document.getElementById("analyzeButton");
+
+const clearButton =
+    document.getElementById("clearButton");
+
+const sampleButton =
+    document.getElementById("sampleButton");
+
+const results =
+    document.getElementById("results");
+
+
+// SAMPLE CODE
+
+const sampleCode = `
+const username = "admin";
+const password = "admin123";
+
+function login(user, pass) {
+
+    if (user == username && pass == password) {
+        console.log("Login successful");
+    }
+
+    eval(user);
+
+    const query =
+        "SELECT * FROM users WHERE name = '" + user + "'";
+
+    console.log(query);
+
+}
+`;
+
+
+// LOAD SAMPLE
+
+sampleButton.addEventListener("click", function () {
+
+    codeInput.value = sampleCode.trim();
+
+});
+
+
+// CLEAR
+
+clearButton.addEventListener("click", function () {
+
+    codeInput.value = "";
+
+    results.classList.add("hidden");
+
+});
+
+
+// ANALYZE
+
+analyzeButton.addEventListener("click", function () {
+
+    const code = codeInput.value.trim();
+
+    if (code === "") {
+
+        alert("Please enter some code first.");
+
+        return;
+    }
+
+    analyzeCode(code);
+
+});
+
+
+// ANALYZER
+
+function analyzeCode(code) {
+
+    const issues = [];
+
+    const lines = code.split("\n");
+
+
+    lines.forEach(function (line, index) {
+
+        const lineNumber = index + 1;
+
+        const lowerLine = line.toLowerCase();
+
+
+        // --------------------------------
+        // HARDCODED PASSWORD
+        // --------------------------------
+
+        if (
+            lowerLine.includes("password") &&
+            lowerLine.includes("=") &&
+            lowerLine.includes('"')
+        ) {
+
+            issues.push({
+
+                type: "security",
+
+                severity: "critical",
+
+                title: "Hardcoded password",
+
+                line: lineNumber,
+
+                description:
+                    "A password appears to be stored directly in the source code.",
+
+                suggestion:
+                    "Use environment variables or a secure secret manager."
+
+            });
+
+        }
+
+
+        // --------------------------------
+        // EVAL
+        // --------------------------------
+
+        if (lowerLine.includes("eval(")) {
+
+            issues.push({
+
+                type: "security",
+
+                severity: "critical",
+
+                title: "Unsafe eval() usage",
+
+                line: lineNumber,
+
+                description:
+                    "eval() can execute dynamically supplied code and may create a security vulnerability.",
+
+                suggestion:
+                    "Avoid eval() and use safer alternatives."
+
+            });
+
+        }
+
+
+        // --------------------------------
+        // SQL INJECTION
+        // --------------------------------
+
+        if (
+            lowerLine.includes("select") &&
+            lowerLine.includes("+")
+        ) {
+
+            issues.push({
+
+                type: "security",
+
+                severity: "high",
+
+                title: "Possible SQL injection",
+
+                line: lineNumber,
+
+                description:
+                    "SQL appears to be constructed using string concatenation.",
+
+                suggestion:
+                    "Use parameterized queries or prepared statements."
+
+            });
+
+        }
+
+
+        // --------------------------------
+        // == INSTEAD OF ===
+        // --------------------------------
+
+        if (
+            line.includes("==") &&
+            !line.includes("===")
+        ) {
+
+            issues.push({
+
+                type: "bug",
+
+                severity: "medium",
+
+                title: "Loose equality comparison",
+
+                line: lineNumber,
+
+                description:
+                    "Loose equality can produce unexpected type coercion.",
+
+                suggestion:
+                    "Consider using strict equality (===)."
+
+            });
+
+        }
+
+
+        // --------------------------------
+        // CONSOLE.LOG
+        // --------------------------------
+
+        if (lowerLine.includes("console.log")) {
+
+            issues.push({
+
+                type: "code_smell",
+
+                severity: "low",
+
+                title: "Debug logging",
+
+                line: lineNumber,
+
+                description:
+                    "Console logging may have been left in production code.",
+
+                suggestion:
+                    "Use a proper logging system or remove unnecessary logs."
+
+            });
+
+        }
+
+    });
+
+
+    calculateRisk(issues);
+
+}
+function calculateRisk(issues) {
+
+    let score = 0;
+
+
+    issues.forEach(function (issue) {
+
+        if (issue.severity === "critical") {
+            score += 30;
+        }
+
+        else if (issue.severity === "high") {
+            score += 20;
+        }
+
+        else if (issue.severity === "medium") {
+            score += 10;
+        }
+
+        else if (issue.severity === "low") {
+            score += 5;
+        }
+
+    });
+
+
+    score = Math.min(score, 100);
+
+
+    let riskLevel;
+
+
+    if (score >= 70) {
+
+        riskLevel = "HIGH";
+
+    }
+
+    else if (score >= 40) {
+
+        riskLevel = "MEDIUM";
+
+    }
+
+    else if (score > 0) {
+
+        riskLevel = "LOW";
+
+    }
+
+    else {
+
+        riskLevel = "SAFE";
+
+    }
+
+
+    displayResults(
+        issues,
+        score,
+        riskLevel
+    );
+
+}
+function displayResults(
+    issues,
+    score,
+    riskLevel
+) {
+
+    results.classList.remove("hidden");
+
+
+    // Risk
+
+    document.getElementById(
+        "riskScore"
+    ).textContent = score;
+
+
+    document.getElementById(
+        "riskPercent"
+    ).textContent = score + "%";
+
+
+    document.getElementById(
+        "riskLevel"
+    ).textContent = riskLevel;
+
+
+    // Count categories
+
+    const bugs =
+        issues.filter(
+            issue => issue.type === "bug"
+        ).length;
+
+
+    const security =
+        issues.filter(
+            issue => issue.type === "security"
+        ).length;
+
+
+    const performance =
+        issues.filter(
+            issue => issue.type === "performance"
+        ).length;
+
+
+    const smells =
+        issues.filter(
+            issue => issue.type === "code_smell"
+        ).length;
+
+
+    document.getElementById(
+        "bugCount"
+    ).textContent = bugs;
+
+
+    document.getElementById(
+        "securityCount"
+    ).textContent = security;
+
+
+    document.getElementById(
+        "performanceCount"
+    ).textContent = performance;
+
+
+    document.getElementById(
+        "smellCount"
+    ).textContent = smells;
+
+
+    // Issues
+
+    const container =
+        document.getElementById(
+            "issuesContainer"
+        );
+
+
+    container.innerHTML = "";
+
+
+    if (issues.length === 0) {
+
+        container.innerHTML = `
+            <div class="issue">
+                <div class="issue-title">
+                    No issues detected
+                </div>
+
+                <p>
+                    The analyzer did not find any
+                    obvious problems in this code.
+                </p>
+            </div>
+        `;
+
+        return;
+    }
+
+
+    // Show top 3
+
+    const topIssues =
+        issues.slice(0, 3);
+
+
+    topIssues.forEach(function (issue) {
+
+        const issueElement =
+            document.createElement("div");
+
+
+        issueElement.className = "issue";
+
+
+        issueElement.innerHTML = `
+
+            <div class="issue-header">
+
+                <span class="issue-title">
+                    ${issue.title}
+                </span>
+
+                <span class="badge ${issue.severity}">
+                    ${issue.severity.toUpperCase()}
+                </span>
+
+            </div>
+
+
+            <p>
+                <strong>Line ${issue.line}</strong>
+            </p>
+
+
+            <p>
+                ${issue.description}
+            </p>
+
+
+            <div class="issue-suggestion">
+
+                <strong>Suggested Fix:</strong>
+
+                <p>
+                    ${issue.suggestion}
+                </p>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(
+            issueElement
+        );
+
+    });
+
+}
+</script>
+</html>
