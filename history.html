@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CodeGuard AI — Review History</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND -->
+    <div class="background-grid"></div>
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+
+
+    <div class="app">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">✦</div>
+
+                <div>
+                    <h1>CODEGUARD</h1>
+                    <small>AI RELEASE INTELLIGENCE</small>
+                </div>
+            </div>
+
+
+            <nav class="navigation">
+
+                <p class="nav-label">WORKSPACE</p>
+
+                <a class="nav-item" href="index.html">
+                    <span>⌂</span>
+                    Dashboard
+                </a>
+
+                <a class="nav-item" href="review.html">
+                    <span>⌁</span>
+                    New Review
+                </a>
+
+                <a class="nav-item" href="github-pr.html">
+                    <span>◈</span>
+                    GitHub PR
+                </a>
+
+
+                <p class="nav-label">ANALYTICS</p>
+
+                <a class="nav-item active" href="history.html">
+                    <span>◷</span>
+                    Review History
+                </a>
+
+                <a class="nav-item" href="reports.html">
+                    <span>▥</span>
+                    Reports
+                </a>
+
+
+                <p class="nav-label">SYSTEM</p>
+
+                <a class="nav-item" href="settings.html">
+                    <span>⚙</span>
+                    Settings
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <div class="ai-status">
+
+                    <div class="online-dot"></div>
+
+                    <div>
+                        <strong>AI ENGINE ONLINE</strong>
+                        <small>Ready for analysis</small>
+                    </div>
+
+                </div>
+
+                <div class="version">
+                    CODEGUARD v1.0
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN ================= -->
+        <main class="main">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+
+                <div class="mobile-brand">
+                    ✦ CODEGUARD AI
+                </div>
+
+                <div class="breadcrumb">
+                    Analytics
+                    <span>/</span>
+                    Review History
+                </div>
+
+                <div class="top-actions">
+
+                    <div class="connection">
+                        <span></span>
+                        System Operational
+                    </div>
+
+                    <div class="icon-button">
+                        ⌘
+                    </div>
+
+                    <div class="avatar">
+                        DEV
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <div class="content">
+
+                <!-- ================= HERO ================= -->
+                <section class="hero">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            <span class="pulse"></span>
+                            REVIEW ARCHIVE
+                        </div>
+
+                        <h2>
+                            Your code review
+                            <span>history.</span>
+                        </h2>
+
+                        <p>
+                            Browse previous CodeGuard AI analyses,
+                            risk scores and detected issues.
+                        </p>
+
+                    </div>
+
+
+                    <div class="hero-actions">
+
+                        <button
+                            class="primary-button"
+                            onclick="location.href='review.html'"
+                        >
+                            ✦ New Review
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= SUMMARY ================= -->
+                <section class="metrics">
+
+                    <div class="metric-card">
+
+                        <div class="metric-icon purple">
+                            ◷
+                        </div>
+
+                        <div>
+                            <span>
+                                TOTAL REVIEWS
+                            </span>
+
+                            <strong id="historyTotalReviews">
+                                0
+                            </strong>
+
+                            <small>
+                                analyses completed
+                            </small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="metric-card">
+
+                        <div class="metric-icon red">
+                            ⚠
+                        </div>
+
+                        <div>
+                            <span>
+                                TOTAL ISSUES
+                            </span>
+
+                            <strong id="historyTotalIssues">
+                                0
+                            </strong>
+
+                            <small>
+                                findings detected
+                            </small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="metric-card">
+
+                        <div class="metric-icon orange">
+                            ◇
+                        </div>
+
+                        <div>
+                            <span>
+                                AVERAGE RISK
+                            </span>
+
+                            <strong id="historyAverageRisk">
+                                0
+                            </strong>
+
+                            <small>
+                                risk score
+                            </small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="metric-card">
+
+                        <div class="metric-icon yellow">
+                            ✦
+                        </div>
+
+                        <div>
+                            <span>
+                                LAST REVIEW
+                            </span>
+
+                            <strong id="historyLastReview">
+                                —
+                            </strong>
+
+                            <small>
+                                latest analysis
+                            </small>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= HISTORY PANEL ================= -->
+                <section class="panel history-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span class="panel-label">
+                                ARCHIVE
+                            </span>
+
+                            <h3>
+                                Previous Reviews
+                            </h3>
+
+                        </div>
+
+
+                        <div class="history-actions">
+
+                            <button
+                                class="ghost-button"
+                                onclick="clearReviewHistory()"
+                            >
+                                Clear History
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SEARCH -->
+                    <div class="history-toolbar">
+
+                        <div class="search-box">
+
+                            <span>
+                                ⌕
+                            </span>
+
+                            <input
+                                type="text"
+                                id="historySearch"
+                                placeholder="Search reviews..."
+                                oninput="filterReviewHistory()"
+                            >
+
+                        </div>
+
+
+                        <select
+                            id="historyFilter"
+                            onchange="filterReviewHistory()"
+                        >
+
+                            <option value="all">
+                                All Reviews
+                            </option>
+
+                            <option value="safe">
+                                Safe
+                            </option>
+
+                            <option value="warning">
+                                Warning
+                            </option>
+
+                            <option value="critical">
+                                Critical
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- HISTORY LIST -->
+                    <div
+                        class="history-list"
+                        id="historyList"
+                    >
+
+                        <!-- JavaScript will populate this -->
+
+                    </div>
+
+
+                    <!-- EMPTY STATE -->
+                    <div
+                        class="empty-state hidden"
+                        id="historyEmpty"
+                    >
+
+                        <div class="empty-icon">
+                            ◷
+                        </div>
+
+                        <h3>
+                            No reviews yet
+                        </h3>
+
+                        <p>
+                            Your completed code reviews will
+                            appear here.
+                        </p>
+
+                        <button
+                            class="primary-button"
+                            onclick="location.href='review.html'"
+                        >
+                            ✦ Start Your First Review
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= FOOTER ================= -->
+                <footer>
+
+                    <div>
+                        CODEGUARD AI
+                    </div>
+
+                    <span>
+                        AI Code Review &amp; Release Intelligence
+                    </span>
+
+                    <span>
+                        Prototype • Hackathon Edition
+                    </span>
+
+                </footer>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CodeGuard AI — GitHub PR</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND -->
+    <div class="background-grid"></div>
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+
+
+    <div class="app">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">✦</div>
+
+                <div>
+                    <h1>CODEGUARD</h1>
+                    <small>AI RELEASE INTELLIGENCE</small>
+                </div>
+            </div>
+
+
+            <nav class="navigation">
+
+                <p class="nav-label">WORKSPACE</p>
+
+                <a class="nav-item" href="index.html">
+                    <span>⌂</span>
+                    Dashboard
+                </a>
+
+                <a class="nav-item" href="review.html">
+                    <span>⌁</span>
+                    New Review
+                </a>
+
+                <a class="nav-item active" href="github-pr.html">
+                    <span>◈</span>
+                    GitHub PR
+                </a>
+
+
+                <p class="nav-label">ANALYTICS</p>
+
+                <a class="nav-item" href="history.html">
+                    <span>◷</span>
+                    Review History
+                </a>
+
+                <a class="nav-item" href="reports.html">
+                    <span>▥</span>
+                    Reports
+                </a>
+
+
+                <p class="nav-label">SYSTEM</p>
+
+                <a class="nav-item" href="settings.html">
+                    <span>⚙</span>
+                    Settings
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <div class="ai-status">
+
+                    <div class="online-dot"></div>
+
+                    <div>
+                        <strong>AI ENGINE ONLINE</strong>
+                        <small>Ready for analysis</small>
+                    </div>
+
+                </div>
+
+                <div class="version">
+                    CODEGUARD v1.0
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN ================= -->
+        <main class="main">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+
+                <div class="mobile-brand">
+                    ✦ CODEGUARD AI
+                </div>
+
+                <div class="breadcrumb">
+                    Workspace
+                    <span>/</span>
+                    GitHub PR
+                </div>
+
+                <div class="top-actions">
+
+                    <div class="connection">
+                        <span></span>
+                        System Operational
+                    </div>
+
+                    <div class="icon-button">
+                        ⌘
+                    </div>
+
+                    <div class="avatar">
+                        DEV
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <div class="content">
+
+                <!-- ================= HERO ================= -->
+                <section class="hero">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            <span class="pulse"></span>
+                            GITHUB INTEGRATION
+                        </div>
+
+                        <h2>
+                            Review your
+                            <span>Pull Requests.</span>
+                        </h2>
+
+                        <p>
+                            Connect a GitHub pull request and let
+                            CodeGuard AI analyze the changed code
+                            before it is merged.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= PR CARD ================= -->
+                <section class="review-card">
+
+                    <div class="card-top">
+
+                        <div class="card-title">
+
+                            <span class="title-icon">
+                                ◈
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    GitHub Pull Request
+                                </h3>
+
+                                <p>
+                                    Enter a repository and pull
+                                    request to begin analysis.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONNECTION STATUS -->
+                    <div class="github-status">
+
+                        <div class="github-status-icon">
+                            ◈
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                GitHub Connection
+                            </strong>
+
+                            <span id="githubConnectionStatus">
+                                Demo connection ready
+                            </span>
+
+                        </div>
+
+                        <span class="status-badge">
+                            DEMO
+                        </span>
+
+                    </div>
+
+
+                    <!-- FORM -->
+                    <div class="github-form">
+
+                        <div class="form-group">
+
+                            <label for="githubRepo">
+                                Repository
+                            </label>
+
+                            <input
+                                type="text"
+                                id="githubRepo"
+                                placeholder="owner/repository"
+                                autocomplete="off"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="githubPR">
+                                Pull Request
+                            </label>
+
+                            <input
+                                type="text"
+                                id="githubPR"
+                                placeholder="#42"
+                                autocomplete="off"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PR INFORMATION -->
+                    <div
+                        class="pr-preview hidden"
+                        id="prPreview"
+                    >
+
+                        <div class="pr-header">
+
+                            <div>
+
+                                <span class="panel-label">
+                                    PULL REQUEST
+                                </span>
+
+                                <h3 id="prTitle">
+                                    Pull Request
+                                </h3>
+
+                            </div>
+
+                            <span
+                                class="pr-state"
+                                id="prState"
+                            >
+                                OPEN
+                            </span>
+
+                        </div>
+
+
+                        <div class="pr-meta">
+
+                            <span id="prRepo">
+                                repository
+                            </span>
+
+                            <span>•</span>
+
+                            <span id="prBranch">
+                                feature/update
+                            </span>
+
+                        </div>
+
+
+                        <div class="pr-stats">
+
+                            <div>
+                                <strong id="prFiles">
+                                    0
+                                </strong>
+
+                                <span>
+                                    Files
+                                </span>
+                            </div>
+
+                            <div>
+                                <strong id="prAdditions">
+                                    0
+                                </strong>
+
+                                <span>
+                                    Additions
+                                </span>
+                            </div>
+
+                            <div>
+                                <strong id="prDeletions">
+                                    0
+                                </strong>
+
+                                <span>
+                                    Deletions
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACTIONS -->
+                    <div class="review-actions">
+
+                        <button
+                            class="clear-button"
+                            onclick="clearPRForm()"
+                        >
+                            Clear
+                        </button>
+
+
+                        <button
+                            class="analyze-button"
+                            id="analyzePRButton"
+                            onclick="analyzePullRequest()"
+                        >
+
+                            <span>
+                                ✦
+                            </span>
+
+                            Analyze Pull Request
+
+                            <span class="button-arrow">
+                                →
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= ANALYSIS ================= -->
+                <section
+                    class="analysis-screen hidden"
+                    id="prAnalysisScreen"
+                >
+
+                    <div class="analysis-orbit">
+
+                        <div class="orbit-ring ring-one"></div>
+                        <div class="orbit-ring ring-two"></div>
+
+                        <div class="ai-core">
+                            ✦
+                        </div>
+
+                    </div>
+
+
+                    <h3>
+                        Analyzing Pull Request...
+                    </h3>
+
+                    <p>
+                        CodeGuard AI is reviewing the changed files.
+                    </p>
+
+
+                    <div class="analysis-steps">
+
+                        <div class="analysis-step complete">
+                            <span>✓</span>
+                            Fetching pull request
+                        </div>
+
+                        <div class="analysis-step complete">
+                            <span>✓</span>
+                            Reading changed files
+                        </div>
+
+                        <div class="analysis-step active-step">
+                            <span>◌</span>
+                            Running AI security review
+                        </div>
+
+                        <div class="analysis-step">
+                            <span>○</span>
+                            Generating review report
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= PR RESULTS ================= -->
+                <section
+                    class="results hidden"
+                    id="prResults"
+                >
+
+                    <div class="release-gate">
+
+                        <div class="gate-left">
+
+                            <div
+                                class="gate-icon"
+                                id="prGateIcon"
+                            >
+                                !
+                            </div>
+
+                            <div>
+
+                                <span class="gate-label">
+                                    PULL REQUEST REVIEW
+                                </span>
+
+                                <h3 id="prGateTitle">
+                                    REVIEW COMPLETE
+                                </h3>
+
+                                <p id="prGateMessage">
+                                    CodeGuard AI completed the
+                                    pull request analysis.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="gate-score">
+
+                            <span>
+                                RISK SCORE
+                            </span>
+
+                            <strong id="prRiskScore">
+                                0
+                            </strong>
+
+                            <small>
+                                /100
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PR RESULT METRICS -->
+                    <div class="metrics">
+
+                        <div class="metric-card">
+
+                            <div class="metric-icon red">
+                                ⌁
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    SECURITY
+                                </span>
+
+                                <strong id="prSecurityCount">
+                                    0
+                                </strong>
+
+                                <small>
+                                    issues detected
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="metric-card">
+
+                            <div class="metric-icon orange">
+                                ⚠
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    BUGS
+                                </span>
+
+                                <strong id="prBugCount">
+                                    0
+                                </strong>
+
+                                <small>
+                                    issues detected
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="metric-card">
+
+                            <div class="metric-icon yellow">
+                                ϟ
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    PERFORMANCE
+                                </span>
+
+                                <strong id="prPerformanceCount">
+                                    0
+                                </strong>
+
+                                <small>
+                                    issues detected
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="metric-card">
+
+                            <div class="metric-icon purple">
+                                ◇
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    CODE QUALITY
+                                </span>
+
+                                <strong id="prQualityCount">
+                                    0
+                                </strong>
+
+                                <small>
+                                    issues detected
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ISSUES -->
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="panel-label">
+                                    AI REVIEW
+                                </span>
+
+                                <h3>
+                                    Findings
+                                </h3>
+
+                            </div>
+
+                            <span
+                                class="issue-count"
+                                id="prIssueCount"
+                            >
+                                0
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="issues-list"
+                            id="prIssuesContainer"
+                        >
+                        </div>
+
+                    </div>
+
+
+                    <!-- AI INSIGHT -->
+                    <div class="ai-insight">
+
+                        <div class="ai-insight-icon">
+                            ✦
+                        </div>
+
+                        <div>
+
+                            <span>
+                                CODEGUARD AI INSIGHT
+                            </span>
+
+                            <h3>
+                                Pull request analysis
+                            </h3>
+
+                            <p id="prAiInsight">
+                                Review findings before merging
+                                the pull request.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="new-review"
+                        onclick="newPRReview()"
+                    >
+                        ↻ Analyze Another PR
+                    </button>
+
+                </section>
+
+
+                <!-- ================= INFO ================= -->
+                <section class="info-grid">
+
+                    <div class="info-card">
+
+                        <span class="info-icon">
+                            ◈
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                Automated PR Review
+                            </h3>
+
+                            <p>
+                                Detect security, bug,
+                                performance and quality
+                                issues before merge.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <span class="info-icon">
+                            ✦
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                AI Release Intelligence
+                            </h3>
+
+                            <p>
+                                Get a risk score and actionable
+                                findings for every change.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- FOOTER -->
+                <footer>
+
+                    <div>
+                        CODEGUARD AI
+                    </div>
+
+                    <span>
+                        AI Code Review &amp; Release Intelligence
+                    </span>
+
+                    <span>
+                        Prototype • Hackathon Edition
+                    </span>
+
+                </footer>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

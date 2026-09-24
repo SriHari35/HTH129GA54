@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CodeGuard AI — Reports</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND -->
+    <div class="background-grid"></div>
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+
+
+    <div class="app">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">✦</div>
+
+                <div>
+                    <h1>CODEGUARD</h1>
+                    <small>AI RELEASE INTELLIGENCE</small>
+                </div>
+            </div>
+
+
+            <nav class="navigation">
+
+                <p class="nav-label">WORKSPACE</p>
+
+                <a class="nav-item" href="index.html">
+                    <span>⌂</span>
+                    Dashboard
+                </a>
+
+                <a class="nav-item" href="review.html">
+                    <span>⌁</span>
+                    New Review
+                </a>
+
+                <a class="nav-item" href="github-pr.html">
+                    <span>◈</span>
+                    GitHub PR
+                </a>
+
+
+                <p class="nav-label">ANALYTICS</p>
+
+                <a class="nav-item" href="history.html">
+                    <span>◷</span>
+                    Review History
+                </a>
+
+                <a class="nav-item active" href="reports.html">
+                    <span>▥</span>
+                    Reports
+                </a>
+
+
+                <p class="nav-label">SYSTEM</p>
+
+                <a class="nav-item" href="settings.html">
+                    <span>⚙</span>
+                    Settings
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <div class="ai-status">
+
+                    <div class="online-dot"></div>
+
+                    <div>
+                        <strong>AI ENGINE ONLINE</strong>
+                        <small>Ready for analysis</small>
+                    </div>
+
+                </div>
+
+                <div class="version">
+                    CODEGUARD v1.0
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN ================= -->
+        <main class="main">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+
+                <div class="mobile-brand">
+                    ✦ CODEGUARD AI
+                </div>
+
+                <div class="breadcrumb">
+                    Analytics
+                    <span>/</span>
+                    Reports
+                </div>
+
+                <div class="top-actions">
+
+                    <div class="connection">
+                        <span></span>
+                        System Operational
+                    </div>
+
+                    <div class="icon-button">
+                        ⌘
+                    </div>
+
+                    <div class="avatar">
+                        DEV
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <div class="content">
+
+                <!-- ================= HERO ================= -->
+                <section class="hero">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            <span class="pulse"></span>
+                            CODE QUALITY ANALYTICS
+                        </div>
+
+                        <h2>
+                            Understand your
+                            <span>code risk.</span>
+                        </h2>
+
+                        <p>
+                            Track security, bugs, performance and
+                            maintainability trends across your
+                            CodeGuard AI reviews.
+                        </p>
+
+                    </div>
+
+
+                    <div class="hero-actions">
+
+                        <button
+                            class="primary-button"
+                            onclick="refreshReports()"
+                        >
+                            ↻ Refresh Report
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= REPORT SUMMARY ================= -->
+                <section class="metrics">
+
+                    <div class="metric-card">
+
+                        <div class="metric-icon purple">
+                            ◷
+                        </div>
+
+                        <div>
+
+                            <span>
+                                REVIEWS
+                            </span>
+
+                            <strong id="reportTotalReviews">
+                                0
+                            </strong>
+
+                            <small>
+                                total analyses
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="metric-card">
+
+                        <div class="metric-icon red">
+                            ⌁
+                        </div>
+
+                        <div>
+
+                            <span>
+                                SECURITY
+                            </span>
+
+                            <strong id="reportSecurityIssues">
+                                0
+                            </strong>
+
+                            <small>
+                                findings
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="metric-card">
+
+                        <div class="metric-icon orange">
+                            ⚠
+                        </div>
+
+                        <div>
+
+                            <span>
+                                BUGS
+                            </span>
+
+                            <strong id="reportBugIssues">
+                                0
+                            </strong>
+
+                            <small>
+                                findings
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="metric-card">
+
+                        <div class="metric-icon yellow">
+                            ϟ
+                        </div>
+
+                        <div>
+
+                            <span>
+                                AVG RISK
+                            </span>
+
+                            <strong id="reportAverageRisk">
+                                0
+                            </strong>
+
+                            <small>
+                                score / 100
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= REPORT GRID ================= -->
+                <div class="results-grid">
+
+
+                    <!-- RISK DISTRIBUTION -->
+                    <section class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="panel-label">
+                                    RISK ANALYTICS
+                                </span>
+
+                                <h3>
+                                    Risk Distribution
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="report-chart">
+
+                            <div class="chart-row">
+
+                                <div class="chart-label">
+                                    Security
+                                    <span id="reportSecurityPercent">
+                                        0%
+                                    </span>
+                                </div>
+
+                                <div class="chart-track">
+                                    <div
+                                        class="chart-fill security"
+                                        id="reportSecurityBar"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="chart-row">
+
+                                <div class="chart-label">
+                                    Bugs
+                                    <span id="reportBugPercent">
+                                        0%
+                                    </span>
+                                </div>
+
+                                <div class="chart-track">
+                                    <div
+                                        class="chart-fill bugs"
+                                        id="reportBugBar"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="chart-row">
+
+                                <div class="chart-label">
+                                    Performance
+                                    <span id="reportPerformancePercent">
+                                        0%
+                                    </span>
+                                </div>
+
+                                <div class="chart-track">
+                                    <div
+                                        class="chart-fill performance"
+                                        id="reportPerformanceBar"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="chart-row">
+
+                                <div class="chart-label">
+                                    Code Quality
+                                    <span id="reportQualityPercent">
+                                        0%
+                                    </span>
+                                </div>
+
+                                <div class="chart-track">
+                                    <div
+                                        class="chart-fill quality"
+                                        id="reportQualityBar"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- REVIEW STATUS -->
+                    <section class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="panel-label">
+                                    RELEASE STATUS
+                                </span>
+
+                                <h3>
+                                    Review Outcomes
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="outcome-list">
+
+                            <div class="outcome-item">
+
+                                <div class="outcome-icon safe">
+                                    ✓
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        Safe
+                                    </strong>
+
+                                    <span>
+                                        Low-risk reviews
+                                    </span>
+                                </div>
+
+                                <b id="reportSafeCount">
+                                    0
+                                </b>
+
+                            </div>
+
+
+                            <div class="outcome-item">
+
+                                <div class="outcome-icon warning">
+                                    !
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        Warning
+                                    </strong>
+
+                                    <span>
+                                        Reviews needing attention
+                                    </span>
+                                </div>
+
+                                <b id="reportWarningCount">
+                                    0
+                                </b>
+
+                            </div>
+
+
+                            <div class="outcome-item">
+
+                                <div class="outcome-icon critical">
+                                    ×
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        Critical
+                                    </strong>
+
+                                    <span>
+                                        High-risk reviews
+                                    </span>
+                                </div>
+
+                                <b id="reportCriticalCount">
+                                    0
+                                </b>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+
+                <!-- ================= CATEGORY BREAKDOWN ================= -->
+                <section class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span class="panel-label">
+                                FINDINGS
+                            </span>
+
+                            <h3>
+                                Issue Breakdown
+                            </h3>
+
+                        </div>
+
+                        <span
+                            class="issue-count"
+                            id="reportTotalIssues"
+                        >
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div class="issue-breakdown">
+
+                        <div class="breakdown-card">
+
+                            <div class="breakdown-icon red">
+                                ⌁
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Security
+                                </span>
+
+                                <strong id="breakdownSecurity">
+                                    0
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="breakdown-card">
+
+                            <div class="breakdown-icon orange">
+                                ⚠
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Bugs
+                                </span>
+
+                                <strong id="breakdownBugs">
+                                    0
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="breakdown-card">
+
+                            <div class="breakdown-icon yellow">
+                                ϟ
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Performance
+                                </span>
+
+                                <strong id="breakdownPerformance">
+                                    0
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="breakdown-card">
+
+                            <div class="breakdown-icon purple">
+                                ◇
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Quality
+                                </span>
+
+                                <strong id="breakdownQuality">
+                                    0
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= AI SUMMARY ================= -->
+                <section class="ai-insight">
+
+                    <div class="ai-insight-icon">
+                        ✦
+                    </div>
+
+                    <div>
+
+                        <span>
+                            CODEGUARD AI REPORT
+                        </span>
+
+                        <h3 id="reportInsightTitle">
+                            No review data yet
+                        </h3>
+
+                        <p id="reportInsight">
+                            Complete a code review to generate
+                            your first release intelligence report.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= ACTION ================= -->
+                <div class="report-actions">
+
+                    <button
+                        class="primary-button"
+                        onclick="location.href='review.html'"
+                    >
+                        ✦ Run New Review
+                    </button>
+
+                    <button
+                        class="ghost-button"
+                        onclick="location.href='history.html'"
+                    >
+                        ◷ View Review History
+                    </button>
+
+                </div>
+
+
+                <!-- ================= FOOTER ================= -->
+                <footer>
+
+                    <div>
+                        CODEGUARD AI
+                    </div>
+
+                    <span>
+                        AI Code Review &amp; Release Intelligence
+                    </span>
+
+                    <span>
+                        Prototype • Hackathon Edition
+                    </span>
+
+                </footer>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

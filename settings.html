@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CodeGuard AI — Settings</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND -->
+    <div class="background-grid"></div>
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+
+
+    <div class="app">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    ✦
+                </div>
+
+                <div>
+                    <h1>CODEGUARD</h1>
+                    <small>AI RELEASE INTELLIGENCE</small>
+                </div>
+
+            </div>
+
+
+            <nav class="navigation">
+
+                <p class="nav-label">
+                    WORKSPACE
+                </p>
+
+                <a class="nav-item" href="index.html">
+                    <span>⌂</span>
+                    Dashboard
+                </a>
+
+                <a class="nav-item" href="review.html">
+                    <span>⌁</span>
+                    New Review
+                </a>
+
+                <a class="nav-item" href="github-pr.html">
+                    <span>◈</span>
+                    GitHub PR
+                </a>
+
+
+                <p class="nav-label">
+                    ANALYTICS
+                </p>
+
+                <a class="nav-item" href="history.html">
+                    <span>◷</span>
+                    Review History
+                </a>
+
+                <a class="nav-item" href="reports.html">
+                    <span>▥</span>
+                    Reports
+                </a>
+
+
+                <p class="nav-label">
+                    SYSTEM
+                </p>
+
+                <a class="nav-item active" href="settings.html">
+                    <span>⚙</span>
+                    Settings
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <div class="ai-status">
+
+                    <div class="online-dot"></div>
+
+                    <div>
+                        <strong>
+                            AI ENGINE ONLINE
+                        </strong>
+
+                        <small>
+                            Ready for analysis
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="version">
+                    CODEGUARD v1.0
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN ================= -->
+        <main class="main">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+
+                <div class="mobile-brand">
+                    ✦ CODEGUARD AI
+                </div>
+
+                <div class="breadcrumb">
+
+                    System
+
+                    <span>/</span>
+
+                    Settings
+
+                </div>
+
+
+                <div class="top-actions">
+
+                    <div class="connection">
+
+                        <span></span>
+
+                        System Operational
+
+                    </div>
+
+
+                    <div class="icon-button">
+                        ⌘
+                    </div>
+
+
+                    <div class="avatar">
+                        DEV
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <div class="content">
+
+                <!-- ================= HERO ================= -->
+                <section class="hero">
+
+                    <div>
+
+                        <div class="eyebrow">
+
+                            <span class="pulse"></span>
+
+                            SYSTEM CONFIGURATION
+
+                        </div>
+
+
+                        <h2>
+
+                            Configure your
+                            <span>workspace.</span>
+
+                        </h2>
+
+
+                        <p>
+
+                            Manage CodeGuard AI review preferences,
+                            analysis behavior and local application
+                            settings.
+
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= SETTINGS ================= -->
+
+                <div class="settings-layout">
+
+
+                    <!-- GENERAL SETTINGS -->
+                    <section class="panel settings-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="panel-label">
+                                    GENERAL
+                                </span>
+
+                                <h3>
+                                    Review Preferences
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Auto Analysis -->
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+
+                                <div class="setting-icon">
+                                    ✦
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Automatic Analysis
+                                    </strong>
+
+                                    <p>
+                                        Start analysis immediately
+                                        after code is loaded.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <label class="toggle">
+
+                                <input
+                                    type="checkbox"
+                                    id="autoAnalysis"
+                                    onchange="saveSettings()"
+                                >
+
+                                <span class="toggle-slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- Save Reviews -->
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+
+                                <div class="setting-icon">
+                                    ◷
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Save Review History
+                                    </strong>
+
+                                    <p>
+                                        Store completed reviews
+                                        in browser storage.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <label class="toggle">
+
+                                <input
+                                    type="checkbox"
+                                    id="saveHistory"
+                                    checked
+                                    onchange="saveSettings()"
+                                >
+
+                                <span class="toggle-slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- Notifications -->
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+
+                                <div class="setting-icon">
+                                    ◇
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Review Notifications
+                                    </strong>
+
+                                    <p>
+                                        Show completion notifications
+                                        after analysis.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <label class="toggle">
+
+                                <input
+                                    type="checkbox"
+                                    id="notifications"
+                                    checked
+                                    onchange="saveSettings()"
+                                >
+
+                                <span class="toggle-slider"></span>
+
+                            </label>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- ANALYSIS SETTINGS -->
+                    <section class="panel settings-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="panel-label">
+                                    ANALYSIS ENGINE
+                                </span>
+
+                                <h3>
+                                    Detection Settings
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Security -->
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+
+                                <div class="setting-icon">
+                                    ⌁
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Security Analysis
+                                    </strong>
+
+                                    <p>
+                                        Detect credentials,
+                                        injection patterns and
+                                        unsafe operations.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <label class="toggle">
+
+                                <input
+                                    type="checkbox"
+                                    id="securityScan"
+                                    checked
+                                    onchange="saveSettings()"
+                                >
+
+                                <span class="toggle-slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- Bug Detection -->
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+
+                                <div class="setting-icon">
+                                    ⚠
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Bug Detection
+                                    </strong>
+
+                                    <p>
+                                        Search for common logic
+                                        and runtime problems.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <label class="toggle">
+
+                                <input
+                                    type="checkbox"
+                                    id="bugDetection"
+                                    checked
+                                    onchange="saveSettings()"
+                                >
+
+                                <span class="toggle-slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- Performance -->
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+
+                                <div class="setting-icon">
+                                    ϟ
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Performance Analysis
+                                    </strong>
+
+                                    <p>
+                                        Identify inefficient
+                                        operations and patterns.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <label class="toggle">
+
+                                <input
+                                    type="checkbox"
+                                    id="performanceScan"
+                                    checked
+                                    onchange="saveSettings()"
+                                >
+
+                                <span class="toggle-slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- Quality -->
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+
+                                <div class="setting-icon">
+                                    ◇
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Code Quality Analysis
+                                    </strong>
+
+                                    <p>
+                                        Detect maintainability
+                                        issues and code smells.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <label class="toggle">
+
+                                <input
+                                    type="checkbox"
+                                    id="qualityScan"
+                                    checked
+                                    onchange="saveSettings()"
+                                >
+
+                                <span class="toggle-slider"></span>
+
+                            </label>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- PROFILE / DISPLAY -->
+                    <section class="panel settings-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="panel-label">
+                                    WORKSPACE
+                                </span>
+
+                                <h3>
+                                    Developer Profile
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="developerName">
+                                Display Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="developerName"
+                                placeholder="Developer"
+                                oninput="saveSettings()"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="defaultLanguage">
+                                Default Language
+                            </label>
+
+                            <select
+                                id="defaultLanguage"
+                                onchange="saveSettings()"
+                            >
+
+                                <option value="javascript">
+                                    JavaScript
+                                </option>
+
+                                <option value="python">
+                                    Python
+                                </option>
+
+                                <option value="java">
+                                    Java
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="defaultFileName">
+                                Default File Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="defaultFileName"
+                                placeholder="review.js"
+                                oninput="saveSettings()"
+                            >
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- STORAGE -->
+                    <section class="panel settings-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="panel-label">
+                                    DATA
+                                </span>
+
+                                <h3>
+                                    Local Storage
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="storage-info">
+
+                            <div class="storage-icon">
+                                ◷
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    Browser Storage
+                                </strong>
+
+                                <p>
+                                    CodeGuard stores prototype
+                                    review data locally in your
+                                    browser.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="storage-actions">
+
+                            <button
+                                class="ghost-button"
+                                onclick="location.href='history.html'"
+                            >
+                                ◷ View History
+                            </button>
+
+
+                            <button
+                                class="danger-button"
+                                onclick="clearAllCodeGuardData()"
+                            >
+                                Clear All Data
+                            </button>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- ABOUT -->
+                    <section class="ai-insight">
+
+                        <div class="ai-insight-icon">
+                            ✦
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                CODEGUARD AI
+                            </span>
+
+                            <h3>
+                                AI Release Intelligence
+                            </h3>
+
+                            <p>
+                                CodeGuard AI is a hackathon prototype
+                                designed to help developers identify
+                                code risks before release.
+                            </p>
+
+                        </div>
+
+                    </section>
+
+
+                </div>
+
+
+                <!-- ================= SAVE STATUS ================= -->
+
+                <div
+                    class="settings-save-status"
+                    id="settingsSaveStatus"
+                >
+                    ✓ Settings saved
+                </div>
+
+
+                <!-- ================= FOOTER ================= -->
+
+                <footer>
+
+                    <div>
+                        CODEGUARD AI
+                    </div>
+
+                    <span>
+                        AI Code Review &amp; Release Intelligence
+                    </span>
+
+                    <span>
+                        Prototype • Hackathon Edition
+                    </span>
+
+                </footer>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
