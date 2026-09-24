@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | CodeGuard AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         TOP BAR
+    ========================================== -->
+
+    <header class="topbar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                ✦
+            </div>
+
+            <div>
+                <h2>CODEGUARD</h2>
+                <p>AI RELEASE INTELLIGENCE</p>
+            </div>
+
+        </div>
+
+
+        <div class="system-status">
+
+            <span class="status-dot"></span>
+
+            System Operational
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         APPLICATION LAYOUT
+    ========================================== -->
+
+    <div class="app-layout">
+
+
+        <!-- =====================================
+             SIDEBAR
+        ====================================== -->
+
+        <aside class="sidebar">
+
+
+            <div class="sidebar-section">
+
+                <p class="section-title">
+                    WORKSPACE
+                </p>
+
+
+                <a href="index.html" class="active">
+                    ◇ &nbsp; Dashboard
+                </a>
+
+
+                <a href="review.html">
+                    ⌁ &nbsp; New Review
+                </a>
+
+
+                <a href="github-pr.html">
+                    ◈ &nbsp; GitHub PR
+                </a>
+
+            </div>
+
+
+
+            <div class="sidebar-section">
+
+                <p class="section-title">
+                    ANALYTICS
+                </p>
+
+
+                <a href="history.html">
+                    ◷ &nbsp; Review History
+                </a>
+
+
+                <a href="reports.html">
+                    ▥ &nbsp; Reports
+                </a>
+
+            </div>
+
+
+
+            <div class="sidebar-section">
+
+                <p class="section-title">
+                    SYSTEM
+                </p>
+
+
+                <a href="settings.html">
+                    ⚙ &nbsp; Settings
+                </a>
+
+            </div>
+
+
+
+            <!-- AI STATUS -->
+
+            <div class="ai-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+
+                    <strong>
+                        AI ENGINE ONLINE
+                    </strong>
+
+                    <small>
+                        Ready for analysis
+                    </small>
+
+                </div>
+
+            </div>
+
+
+        </aside>
+
+
+
+        <!-- =====================================
+             MAIN CONTENT
+        ====================================== -->
+
+        <main class="main-content">
+
+
+            <!-- BREADCRUMB -->
+
+            <div class="breadcrumb">
+
+                Workspace
+                &nbsp; / &nbsp;
+                Dashboard
+
+            </div>
+
+
+
+            <!-- =================================
+                 PAGE HEADER
+            ================================== -->
+
+            <section class="page-header">
+
+                <div>
+
+                    <div class="ai-label">
+                        ● AI RELEASE INTELLIGENCE
+                    </div>
+
+
+                    <h1>
+                        CodeGuard Dashboard
+                    </h1>
+
+
+                    <p>
+                        Analyze code, detect security risks,
+                        and make safer release decisions.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="review.html"
+                    class="primary-btn dashboard-review-btn"
+                >
+                    ✦ New Code Review
+                </a>
+
+            </section>
+
+
+
+            <!-- =================================
+                 STATISTICS
+            ================================== -->
+
+            <section class="dashboard-stats">
+
+
+                <!-- TOTAL REVIEWS -->
+
+                <div class="dashboard-stat-card">
+
+                    <div class="stat-icon">
+                        ◇
+                    </div>
+
+                    <div>
+
+                        <span>
+                            TOTAL REVIEWS
+                        </span>
+
+                        <strong id="dashboardReviews">
+                            0
+                        </strong>
+
+                        <small>
+                            Code reviews completed
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SECURITY -->
+
+                <div class="dashboard-stat-card">
+
+                    <div class="stat-icon security-icon">
+                        🔐
+                    </div>
+
+                    <div>
+
+                        <span>
+                            SECURITY RISKS
+                        </span>
+
+                        <strong id="dashboardSecurity">
+                            0
+                        </strong>
+
+                        <small>
+                            Potential security findings
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- BUGS -->
+
+                <div class="dashboard-stat-card">
+
+                    <div class="stat-icon bug-icon">
+                        🐛
+                    </div>
+
+                    <div>
+
+                        <span>
+                            BUG RISKS
+                        </span>
+
+                        <strong id="dashboardBugs">
+                            0
+                        </strong>
+
+                        <small>
+                            Potential code defects
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PERFORMANCE -->
+
+                <div class="dashboard-stat-card">
+
+                    <div class="stat-icon performance-icon">
+                        ⚡
+                    </div>
+
+                    <div>
+
+                        <span>
+                            PERFORMANCE
+                        </span>
+
+                        <strong id="dashboardPerformance">
+                            0
+                        </strong>
+
+                        <small>
+                            Performance findings
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================
+                 DASHBOARD GRID
+            ================================== -->
+
+            <section class="dashboard-grid">
+
+
+                <!-- =================================
+                     QUICK REVIEW
+                ================================== -->
+
+                <div class="dashboard-card quick-review-card">
+
+
+                    <div class="dashboard-card-header">
+
+                        <div>
+
+                            <span class="ai-label">
+                                QUICK ACTION
+                            </span>
+
+                            <h2>
+                                Start a Code Review
+                            </h2>
+
+                            <p>
+                                Paste your source code and let
+                                CodeGuard analyze potential
+                                security and quality issues.
+                            </p>
+
+                        </div>
+
+                        <div class="dashboard-big-icon">
+                            ✦
+                        </div>
+
+                    </div>
+
+
+                    <div class="quick-review-actions">
+
+                        <a
+                            href="review.html"
+                            class="primary-btn"
+                        >
+                            Start Review
+                        </a>
+
+
+                        <button
+                            class="secondary-btn"
+                            onclick="loadSampleFromDashboard()"
+                        >
+                            Load Demo Code
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================
+                     RELEASE STATUS
+                ================================== -->
+
+                <div class="dashboard-card release-card">
+
+
+                    <div class="dashboard-card-header">
+
+                        <div>
+
+                            <span class="ai-label">
+                                RELEASE CONTROL
+                            </span>
+
+                            <h2>
+                                Release Gate
+                            </h2>
+
+                        </div>
+
+                        <div class="release-status-icon">
+                            ✓
+                        </div>
+
+                    </div>
+
+
+                    <div class="release-status">
+
+                        <strong id="dashboardGate">
+                            RELEASE CLEAR
+                        </strong>
+
+                        <p id="dashboardGateMessage">
+                            Run a code review to evaluate
+                            release risk.
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="review.html"
+                        class="dashboard-link"
+                    >
+                        Run release analysis →
+                    </a>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================
+                 RECENT ACTIVITY
+            ================================== -->
+
+            <section class="dashboard-card recent-card">
+
+
+                <div class="dashboard-card-header">
+
+                    <div>
+
+                        <span class="ai-label">
+                            ACTIVITY
+                        </span>
+
+                        <h2>
+                            Recent Reviews
+                        </h2>
+
+                    </div>
+
+
+                    <a
+                        href="history.html"
+                        class="dashboard-link"
+                    >
+                        View all →
+                    </a>
+
+                </div>
+
+
+
+                <div
+                    id="dashboardRecentReviews"
+                    class="recent-reviews"
+                >
+
+                    <div class="recent-empty">
+
+                        <div class="recent-empty-icon">
+                            ◷
+                        </div>
+
+                        <strong>
+                            No reviews yet
+                        </strong>
+
+                        <p>
+                            Your recent CodeGuard reviews
+                            will appear here.
+                        </p>
+
+                        <a
+                            href="review.html"
+                            class="secondary-btn"
+                        >
+                            Start your first review
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================
+                 AI INSIGHT
+            ================================== -->
+
+            <section class="dashboard-card ai-insight-card">
+
+
+                <div class="ai-insight-icon">
+                    ✦
+                </div>
+
+
+                <div>
+
+                    <span class="ai-label">
+                        CODEGUARD AI
+                    </span>
+
+                    <h2>
+                        Intelligent Release Analysis
+                    </h2>
+
+                    <p>
+                        CodeGuard combines static code analysis,
+                        security detection, risk scoring and
+                        release-gate decisions to help identify
+                        potential problems before deployment.
+                    </p>
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- =========================================
+         SCRIPT
+    ========================================== -->
+
+    <script src="script.js"></script>
+
+
+    <!-- =========================================
+         DASHBOARD SCRIPT
+    ========================================== -->
+
+    <script>
+
+        function loadSampleFromDashboard() {
+
+            window.location.href = "review.html";
+
+        }
+
+
+        function updateDashboard() {
+
+            if (typeof getStoredReviews !== "function") {
+                return;
+            }
+
+
+            const reviews =
+                getStoredReviews();
+
+
+            const totalReviews =
+                reviews.length;
+
+
+            let security = 0;
+            let bugs = 0;
+            let performance = 0;
+
+
+            reviews.forEach(review => {
+
+                security +=
+                    Number(review.security || 0);
+
+                bugs +=
+                    Number(review.bugs || 0);
+
+                performance +=
+                    Number(review.performance || 0);
+
+            });
+
+
+            const reviewsElement =
+                document.getElementById(
+                    "dashboardReviews"
+                );
+
+
+            const securityElement =
+                document.getElementById(
+                    "dashboardSecurity"
+                );
+
+
+            const bugsElement =
+                document.getElementById(
+                    "dashboardBugs"
+                );
+
+
+            const performanceElement =
+                document.getElementById(
+                    "dashboardPerformance"
+                );
+
+
+            if (reviewsElement) {
+
+                reviewsElement.textContent =
+                    totalReviews;
+
+            }
+
+
+            if (securityElement) {
+
+                securityElement.textContent =
+                    security;
+
+            }
+
+
+            if (bugsElement) {
+
+                bugsElement.textContent =
+                    bugs;
+
+            }
+
+
+            if (performanceElement) {
+
+                performanceElement.textContent =
+                    performance;
+
+            }
+
+
+
+            /* =================================
+               RECENT REVIEWS
+            ================================= */
+
+            const recentContainer =
+                document.getElementById(
+                    "dashboardRecentReviews"
+                );
+
+
+            if (!recentContainer) {
+                return;
+            }
+
+
+            if (reviews.length === 0) {
+                return;
+            }
+
+
+            recentContainer.innerHTML = "";
+
+
+            reviews
+                .slice(0, 5)
+                .forEach(review => {
+
+
+                    let riskText = "LOW";
+
+
+                    if (
+                        typeof review.risk === "number"
+                    ) {
+
+                        if (review.risk >= 70) {
+
+                            riskText = "HIGH";
+
+                        }
+
+                        else if (
+                            review.risk >= 40
+                        ) {
+
+                            riskText = "MEDIUM";
+
+                        }
+
+                    }
+
+                    else if (
+                        typeof review.risk === "string"
+                    ) {
+
+                        riskText =
+                            review.risk.toUpperCase();
+
+                    }
+
+
+                    const item =
+                        document.createElement("div");
+
+
+                    item.className =
+                        "recent-review-item";
+
+
+                    item.innerHTML = `
+
+                        <div class="recent-review-icon">
+                            ${
+                                review.type === "GITHUB PR"
+                                    ? "◈"
+                                    : "◇"
+                            }
+                        </div>
+
+
+                        <div class="recent-review-info">
+
+                            <strong>
+                                ${review.id || "Code Review"}
+                            </strong>
+
+                            <small>
+                                ${review.file || "Source Code"}
+                            </small>
+
+                        </div>
+
+
+                        <div class="recent-review-issues">
+
+                            <strong>
+                                ${review.total || 0}
+                            </strong>
+
+                            <small>
+                                issues
+                            </small>
+
+                        </div>
+
+
+                        <div class="
+                            recent-review-risk
+                            risk-${riskText.toLowerCase()}
+                        ">
+
+                            ${riskText}
+
+                        </div>
+
+
+                        <div class="recent-review-date">
+
+                            ${review.date || ""}
+
+                        </div>
+
+                    `;
+
+
+                    recentContainer.appendChild(item);
+
+                });
+
+        }
+
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            updateDashboard
+        );
+
+    </script>
+
+</body>
+
+</html>
