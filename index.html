@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | CodeGuard AI</title>
+
+    <!-- Shared stylesheet -->
+    <link rel="stylesheet" href="style.css?v=2">
+
+    <!-- Dashboard fallback styling -->
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #070b14;
+            --sidebar: #0b101c;
+            --card: #101725;
+            --card2: #131c2d;
+            --border: #202b3d;
+            --text: #f4f7fb;
+            --muted: #8995a8;
+            --blue: #4d8bff;
+            --purple: #9b6cff;
+            --green: #32d399;
+            --yellow: #f5b942;
+            --red: #ff6174;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        /* TOP BAR */
+
+        .topbar {
+            height: 72px;
+            width: 100%;
+            background: #090e18;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 28px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .brand-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #4d8bff, #9b6cff);
+            color: white;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .brand h2 {
+            font-size: 17px;
+            letter-spacing: 2px;
+        }
+
+        .brand p {
+            font-size: 8px;
+            letter-spacing: 2px;
+            color: var(--muted);
+            margin-top: 3px;
+        }
+
+        .system-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #aab4c4;
+            font-size: 12px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 10px rgba(50, 211, 153, .7);
+        }
+
+        /* LAYOUT */
+
+        .app-layout {
+            display: flex;
+            min-height: calc(100vh - 72px);
+        }
+
+        /* SIDEBAR */
+
+        .sidebar {
+            width: 250px;
+            flex-shrink: 0;
+            background: var(--sidebar);
+            border-right: 1px solid var(--border);
+            padding: 28px 16px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #667287;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            margin: 0 0 10px 12px;
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            height: 42px;
+            padding: 0 13px;
+            margin-bottom: 4px;
+            border-radius: 9px;
+            color: #8995a8;
+            text-decoration: none;
+            font-size: 13px;
+            transition: .2s;
+        }
+
+        .sidebar a:hover {
+            background: #121b2b;
+            color: white;
+        }
+
+        .sidebar a.active {
+            background: rgba(77, 139, 255, .12);
+            color: #78a8ff;
+            border: 1px solid rgba(77, 139, 255, .16);
+        }
+
+        .ai-status {
+            margin-top: auto;
+            border: 1px solid #1d3540;
+            background: rgba(50, 211, 153, .05);
+            border-radius: 13px;
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ai-status strong {
+            display: block;
+            font-size: 9px;
+            letter-spacing: .7px;
+            color: #d8e2ed;
+        }
+
+        .ai-status small {
+            display: block;
+            margin-top: 4px;
+            font-size: 10px;
+            color: var(--muted);
+        }
+
+        /* MAIN */
+
+        .main-content {
+            flex: 1;
+            min-width: 0;
+            padding: 36px 42px 60px;
+            max-width: 1500px;
+        }
+
+        .breadcrumb {
+            color: #647087;
+            font-size: 11px;
+            margin-bottom: 24px;
+        }
+
+        .page-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 25px;
+            margin-bottom: 28px;
+        }
+
+        .ai-label {
+            color: var(--blue);
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        .page-header h1 {
+            font-size: 34px;
+            margin: 8px 0 8px;
+            letter-spacing: -.8px;
+        }
+
+        .page-header p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* BUTTONS */
+
+        .primary-btn,
+        .secondary-btn {
+            border: none;
+            border-radius: 9px;
+            padding: 12px 18px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: .2s;
+        }
+
+        .primary-btn {
+            background: var(--blue);
+            color: white;
+            box-shadow: 0 7px 20px rgba(77, 139, 255, .18);
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-1px);
+            background: #5b96ff;
+        }
+
+        .secondary-btn {
+            background: #151e2e;
+            border: 1px solid var(--border);
+            color: #b8c3d2;
+        }
+
+        .secondary-btn:hover {
+            background: #1b2638;
+            color: white;
+        }
+
+        /* STATS */
+
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(77, 139, 255, .11);
+            color: var(--blue);
+            font-size: 21px;
+        }
+
+        .dashboard-stat-card span {
+            display: block;
+            color: #758196;
+            font-size: 9px;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        .dashboard-stat-card strong {
+            display: block;
+            font-size: 27px;
+            margin: 5px 0 2px;
+        }
+
+        .dashboard-stat-card small {
+            color: #68758a;
+            font-size: 10px;
+        }
+
+        /* TWO COLUMN */
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1.45fr 1fr;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+
+        .dashboard-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .dashboard-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .dashboard-card h2 {
+            font-size: 19px;
+            margin: 8px 0;
+        }
+
+        .dashboard-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .dashboard-big-icon {
+            font-size: 42px;
+            color: var(--blue);
+        }
+
+        .quick-review-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        /* RELEASE */
+
+        .release-status-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(50, 211, 153, .1);
+            color: var(--green);
+            font-size: 19px;
+        }
+
+        .release-status {
+            margin-top: 23px;
+            padding: 18px;
+            border: 1px solid rgba(50, 211, 153, .15);
+            border-radius: 12px;
+            background: rgba(50, 211, 153, .035);
+        }
+
+        .release-status strong {
+            color: var(--green);
+            font-size: 16px;
+        }
+
+        .release-status p {
+            margin-top: 7px;
+            font-size: 12px;
+        }
+
+        .dashboard-link {
+            display: inline-block;
+            color: #6fa0ff;
+            text-decoration: none;
+            font-size: 12px;
+            margin-top: 18px;
+        }
+
+        .dashboard-link:hover {
+            color: white;
+        }
+
+        /* RECENT */
+
+        .recent-card {
+            margin-bottom: 18px;
+        }
+
+        .recent-reviews {
+            margin-top: 18px;
+        }
+
+        .recent-empty {
+            border: 1px dashed #263247;
+            border-radius: 12px;
+            text-align: center;
+            padding: 36px 20px;
+        }
+
+        .recent-empty-icon {
+            color: #56647a;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .recent-empty strong {
+            display: block;
+            font-size: 14px;
+        }
+
+        .recent-empty p {
+            margin: 7px 0 18px;
+            font-size: 12px;
+        }
+
+        .recent-review-item {
+            display: grid;
+            grid-template-columns: 42px 1fr 70px 90px 130px;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 5px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .recent-review-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(77, 139, 255, .1);
+            color: var(--blue);
+        }
+
+        .recent-review-info strong {
+            display: block;
+            font-size: 12px;
+        }
+
+        .recent-review-info small {
+            display: block;
+            color: var(--muted);
+            font-size: 10px;
+            margin-top: 4px;
+        }
+
+        .recent-review-issues {
+            text-align: center;
+        }
+
+        .recent-review-issues strong {
+            display: block;
+        }
+
+        .recent-review-issues small {
+            color: var(--muted);
+            font-size: 9px;
+        }
+
+        .recent-review-risk {
+            text-align: center;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .risk-high {
+            color: var(--red);
+        }
+
+        .risk-medium {
+            color: var(--yellow);
+        }
+
+        .risk-low {
+            color: var(--green);
+        }
+
+        .recent-review-date {
+            color: var(--muted);
+            font-size: 10px;
+            text-align: right;
+        }
+
+        /* AI CARD */
+
+        .ai-insight-card {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .ai-insight-icon {
+            width: 55px;
+            height: 55px;
+            flex-shrink: 0;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(155, 108, 255, .11);
+            color: var(--purple);
+            font-size: 25px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1100px) {
+            .dashboard-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 850px) {
+            .sidebar {
+                width: 205px;
+            }
+
+            .main-content {
+                padding: 28px 24px;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .recent-review-item {
+                grid-template-columns: 40px 1fr 60px 80px;
+            }
+
+            .recent-review-date {
+                display: none;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .topbar {
+                padding: 0 15px;
+            }
+
+            .system-status {
+                display: none;
+            }
+
+            .app-layout {
+                display: block;
+            }
+
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                padding: 15px;
+            }
+
+            .sidebar-section {
+                margin-bottom: 10px;
+            }
+
+            .sidebar-section a {
+                display: inline-flex;
+                width: auto;
+                margin-right: 4px;
+            }
+
+            .section-title,
+            .ai-status {
+                display: none;
+            }
+
+            .main-content {
+                padding: 25px 15px;
+            }
+
+            .page-header {
+                display: block;
+            }
+
+            .dashboard-review-btn {
+                margin-top: 18px;
+                width: 100%;
+            }
+
+            .dashboard-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-review-actions {
+                flex-direction: column;
+            }
+
+            .ai-insight-card {
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="brand">
+        <div class="brand-icon">✦</div>
+
+        <div>
+            <h2>CODEGUARD</h2>
+            <p>AI RELEASE INTELLIGENCE</p>
+        </div>
+    </div>
+
+    <div class="system-status">
+        <span class="status-dot"></span>
+        System Operational
+    </div>
+
+</header>
+
+
+<div class="app-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-section">
+
+            <p class="section-title">WORKSPACE</p>
+
+            <a href="index.html" class="active">
+                ◇ &nbsp; Dashboard
+            </a>
+
+            <a href="review.html">
+                ⌁ &nbsp; New Review
+            </a>
+
+            <a href="github-pr.html">
+                ◈ &nbsp; GitHub PR
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <p class="section-title">ANALYTICS</p>
+
+            <a href="history.html">
+                ◷ &nbsp; Review History
+            </a>
+
+            <a href="reports.html">
+                ▥ &nbsp; Reports
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <p class="section-title">SYSTEM</p>
+
+            <a href="settings.html">
+                ⚙ &nbsp; Settings
+            </a>
+
+        </div>
+
+
+        <div class="ai-status">
+
+            <span class="status-dot"></span>
+
+            <div>
+                <strong>AI ENGINE ONLINE</strong>
+                <small>Ready for analysis</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <div class="breadcrumb">
+            Workspace &nbsp; / &nbsp; Dashboard
+        </div>
+
+
+        <!-- HEADER -->
+
+        <section class="page-header">
+
+            <div>
+
+                <div class="ai-label">
+                    ● AI RELEASE INTELLIGENCE
+                </div>
+
+                <h1>
+                    CodeGuard Dashboard
+                </h1>
+
+                <p>
+                    Analyze code, detect security risks, and make safer release decisions.
+                </p>
+
+            </div>
+
+
+            <a href="review.html" class="primary-btn dashboard-review-btn">
+                ✦ &nbsp; New Code Review
+            </a>
+
+        </section>
+
+
+        <!-- STATISTICS -->
+
+        <section class="dashboard-stats">
+
+            <div class="dashboard-stat-card">
+
+                <div class="stat-icon">
+                    ◇
+                </div>
+
+                <div>
+                    <span>TOTAL REVIEWS</span>
+                    <strong id="dashboardReviews">0</strong>
+                    <small>Code reviews completed</small>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-stat-card">
+
+                <div class="stat-icon">
+                    🔐
+                </div>
+
+                <div>
+                    <span>SECURITY RISKS</span>
+                    <strong id="dashboardSecurity">0</strong>
+                    <small>Potential security findings</small>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-stat-card">
+
+                <div class="stat-icon">
+                    🐛
+                </div>
+
+                <div>
+                    <span>BUG RISKS</span>
+                    <strong id="dashboardBugs">0</strong>
+                    <small>Potential code defects</small>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-stat-card">
+
+                <div class="stat-icon">
+                    ⚡
+                </div>
+
+                <div>
+                    <span>PERFORMANCE</span>
+                    <strong id="dashboardPerformance">0</strong>
+                    <small>Performance findings</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK ACTION + RELEASE GATE -->
+
+        <section class="dashboard-grid">
+
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-card-header">
+
+                    <div>
+
+                        <span class="ai-label">
+                            QUICK ACTION
+                        </span>
+
+                        <h2>
+                            Start a Code Review
+                        </h2>
+
+                        <p>
+                            Paste your source code and let CodeGuard analyze potential security and quality issues.
+                        </p>
+
+                    </div>
+
+                    <div class="dashboard-big-icon">
+                        ✦
+                    </div>
+
+                </div>
+
+
+                <div class="quick-review-actions">
+
+                    <a href="review.html" class="primary-btn">
+                        Start Review
+                    </a>
+
+                    <button
+                        class="secondary-btn"
+                        onclick="loadSampleFromDashboard()">
+                        Load Demo Code
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-card-header">
+
+                    <div>
+
+                        <span class="ai-label">
+                            RELEASE CONTROL
+                        </span>
+
+                        <h2>
+                            Release Gate
+                        </h2>
+
+                    </div>
+
+                    <div class="release-status-icon">
+                        ✓
+                    </div>
+
+                </div>
+
+
+                <div class="release-status">
+
+                    <strong id="dashboardGate">
+                        RELEASE CLEAR
+                    </strong>
+
+                    <p id="dashboardGateMessage">
+                        Run a code review to evaluate release risk.
+                    </p>
+
+                </div>
+
+
+                <a href="review.html" class="dashboard-link">
+                    Run release analysis →
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- RECENT REVIEWS -->
+
+        <section class="dashboard-card recent-card">
+
+            <div class="dashboard-card-header">
+
+                <div>
+
+                    <span class="ai-label">
+                        ACTIVITY
+                    </span>
+
+                    <h2>
+                        Recent Reviews
+                    </h2>
+
+                </div>
+
+                <a href="history.html" class="dashboard-link">
+                    View all →
+                </a>
+
+            </div>
+
+
+            <div id="dashboardRecentReviews" class="recent-reviews">
+
+                <div class="recent-empty">
+
+                    <div class="recent-empty-icon">
+                        ◷
+                    </div>
+
+                    <strong>
+                        No reviews yet
+                    </strong>
+
+                    <p>
+                        Your recent CodeGuard reviews will appear here.
+                    </p>
+
+                    <a href="review.html" class="secondary-btn">
+                        Start your first review
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- AI INSIGHT -->
+
+        <section class="dashboard-card ai-insight-card">
+
+            <div class="ai-insight-icon">
+                ✦
+            </div>
+
+            <div>
+
+                <span class="ai-label">
+                    CODEGUARD AI
+                </span>
+
+                <h2>
+                    Intelligent Release Analysis
+                </h2>
+
+                <p>
+                    CodeGuard combines static code analysis, security detection,
+                    risk scoring and release-gate decisions to help identify
+                    potential problems before deployment.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- YOUR SHARED JAVASCRIPT -->
+
+<script src="script.js?v=2"></script>
+
+
+<script>
+
+function loadSampleFromDashboard() {
+
+    sessionStorage.setItem(
+        "codeguardLoadSample",
+        "true"
+    );
+
+    window.location.href = "review.html";
+}
+
+
+function updateDashboard() {
+
+    if (
+        typeof getStoredReviews !== "function"
+    ) {
+        return;
+    }
+
+    const reviews = getStoredReviews() || [];
+
+
+    let security = 0;
+    let bugs = 0;
+    let performance = 0;
+
+
+    reviews.forEach(review => {
+
+        security += Number(
+            review.security || 0
+        );
+
+        bugs += Number(
+            review.bugs || 0
+        );
+
+        performance += Number(
+            review.performance || 0
+        );
+
+    });
+
+
+    const reviewsElement =
+        document.getElementById(
+            "dashboardReviews"
+        );
+
+    const securityElement =
+        document.getElementById(
+            "dashboardSecurity"
+        );
+
+    const bugsElement =
+        document.getElementById(
+            "dashboardBugs"
+        );
+
+    const performanceElement =
+        document.getElementById(
+            "dashboardPerformance"
+        );
+
+
+    if (reviewsElement) {
+        reviewsElement.textContent =
+            reviews.length;
+    }
+
+    if (securityElement) {
+        securityElement.textContent =
+            security;
+    }
+
+    if (bugsElement) {
+        bugsElement.textContent =
+            bugs;
+    }
+
+    if (performanceElement) {
+        performanceElement.textContent =
+            performance;
+    }
+
+
+    const recentContainer =
+        document.getElementById(
+            "dashboardRecentReviews"
+        );
+
+
+    if (!recentContainer) {
+        return;
+    }
+
+
+    if (reviews.length === 0) {
+        return;
+    }
+
+
+    recentContainer.innerHTML = "";
+
+
+    reviews.slice(0, 5).forEach(review => {
+
+        let riskText = "LOW";
+
+
+        if (typeof review.risk === "number") {
+
+            if (review.risk >= 70) {
+                riskText = "HIGH";
+            }
+
+            else if (review.risk >= 40) {
+                riskText = "MEDIUM";
+            }
+
+        }
+
+        else if (
+            typeof review.risk === "string"
+        ) {
+
+            riskText =
+                review.risk.toUpperCase();
+
+        }
+
+
+        const item =
+            document.createElement("div");
+
+        item.className =
+            "recent-review-item";
+
+
+        item.innerHTML = `
+
+            <div class="recent-review-icon">
+                ${review.type === "GITHUB PR" ? "◈" : "◇"}
+            </div>
+
+            <div class="recent-review-info">
+
+                <strong>
+                    ${review.id || "Code Review"}
+                </strong>
+
+                <small>
+                    ${review.file || "Source Code"}
+                </small>
+
+            </div>
+
+            <div class="recent-review-issues">
+
+                <strong>
+                    ${review.total || 0}
+                </strong>
+
+                <small>
+                    issues
+                </small>
+
+            </div>
+
+            <div class="recent-review-risk risk-${riskText.toLowerCase()}">
+                ${riskText}
+            </div>
+
+            <div class="recent-review-date">
+                ${review.date || ""}
+            </div>
+
+        `;
+
+
+        recentContainer.appendChild(item);
+
+    });
+
+}
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    updateDashboard
+);
+
+</script>
+
+</body>
+</html>
